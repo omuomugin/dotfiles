@@ -1,0 +1,11 @@
+[user]
+  email = omuomugin@out-box.dev
+  name = omuomugin
+
+[color]
+  ui = auto
+  diff = auto
+  branch = auto
+
+[ghq]
+  root = ~/workspace
