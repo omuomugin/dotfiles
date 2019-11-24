@@ -1,5 +1,8 @@
 # path
 export PATH="$HOME/bin:$PATH"
+## java
+# --> this maybe more easy to install and set by hand
+# export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 ## go
 export GOPATH="$HOME/workspace"
 export PATH=$PATH:$(go env GOROOT)/bin:$GOPATH/bin
