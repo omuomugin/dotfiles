@@ -60,6 +60,15 @@ setopt hist_ignore_space      # --> ignore starting from space
 setopt extended_history       # --> adding timestamp
 
 # alias
+## --> general
+alias bd='cd ../'
+alias restart='exec zsh -l'
+
+## --> git
+alias gs='git status'
+alias gd='git diff'
+alias gcm='git commit -m'
+alias gcb='git checkout -b'
 
 # others
 # --> show command that took more than 3 seconds
