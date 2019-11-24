@@ -67,8 +67,6 @@ alias restart='exec zsh -l'
 ## --> git
 alias gs='git status'
 alias gd='git diff'
-alias gcm='git commit -m'
-alias gcb='git checkout -b'
 
 # others
 # --> show command that took more than 3 seconds
@@ -101,3 +99,5 @@ ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 # --> pure (which will be installed by npm)
 autoload -U promptinit; promptinit
 prompt pure
+PURE_GIT_DOWN_ARROW='-'
+PURE_GIT_UP_ARROW='+'
