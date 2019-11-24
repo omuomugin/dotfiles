@@ -19,7 +19,7 @@ cask "java"
 brew "go"
 
 # env
-brew "nodenv"
+brew "nvm"
 brew "rbenv"
 brew "yarn"
 
