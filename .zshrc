@@ -96,7 +96,7 @@ bindkey '^l' peco-src
 
 # --> auto suggestion (which will be installed by hombrew)
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+ZSH_AUTOSUGGEST_STRATEGY=(history)
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 
 # --> pure (which will be installed by npm)
