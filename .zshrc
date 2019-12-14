@@ -64,12 +64,40 @@ setopt extended_history       # --> adding timestamp
 
 # alias
 ## --> general
-alias bd='cd ../'
-alias restart='exec zsh -l'
+alias bd='cd ../'             # --> back directroy
+alias restart='exec zsh -l'   # --> reset setting
 
 ## --> git
 alias gs='git status'
 alias gd='git diff'
+alias gb='git branch'
+alias gcb='git checkout -b'
+alias gcm='git commit -m'
+
+# function
+# --> git
+## delete all the branches starting with given word
+function git-branch-delete-by-name () {
+  git branch | grep $1 | tr -d ' ' | tr -d '*' | while read _branch; do git branch -D ${_branch}; done
+}
+
+## get branch name with name
+function git-branch-by-name () {
+  git branch | grep $1 | tr -d ' ' | tr -d '*' | while read _branch; do echo ${_branch}; done
+}
+
+# --> peco
+## show list for ghq list
+function peco-src () {
+  local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
+  if [ -n "$selected_dir" ]; then
+    BUFFER="cd ${selected_dir}"
+    zle accept-line
+  fi
+  zle clear-screen
+}
+zle -N peco-src
+bindkey '^l' peco-src
 
 # others
 # --> show command that took more than 3 seconds
@@ -81,18 +109,6 @@ system %S
 CPU    %P
 cmd    %J
 '
-
-# --> peco
-function peco-src () {
-  local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
-  if [ -n "$selected_dir" ]; then
-    BUFFER="cd ${selected_dir}"
-    zle accept-line
-  fi
-  zle clear-screen
-}
-zle -N peco-src
-bindkey '^l' peco-src
 
 # --> auto suggestion (which will be installed by hombrew)
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
