@@ -76,6 +76,7 @@ alias gcb='git checkout -b'
 alias gcm='git commit -m'
 alias gs='git status'
 alias gd='git diff'
+alias gp='git push'
 
 # function
 # --> git
