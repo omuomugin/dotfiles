@@ -68,11 +68,14 @@ alias bd='cd ../'             # --> back directroy
 alias restart='exec zsh -l'   # --> reset setting
 
 ## --> git
-alias gs='git status'
-alias gd='git diff'
+alias ga='git add -A'
 alias gb='git branch'
+alias gbd='git-branch-delete-by-name' # --> defined as function
+alias gbn='git-branch-by-name' # --> defined as function
 alias gcb='git checkout -b'
 alias gcm='git commit -m'
+alias gs='git status'
+alias gd='git diff'
 
 # function
 # --> git
