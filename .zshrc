@@ -68,15 +68,24 @@ alias bd='cd ../'             # --> back directroy
 alias restart='exec zsh -l'   # --> reset setting
 
 ## --> git
+### basic info
+alias gs='git status'
+alias gd='git diff'
+
+### local actions
 alias ga='git add -A'
+alias gcb='git checkout -b'
+alias gcm='git commit -m'
+alias gp='git push'
+
+### branch
 alias gb='git branch'
 alias gbd='git-branch-delete-by-name' # --> defined as function
 alias gbn='git-branch-by-name' # --> defined as function
-alias gcb='git checkout -b'
-alias gcm='git commit -m'
-alias gs='git status'
-alias gd='git diff'
-alias gp='git push'
+
+### for OSS
+alias gau='git remote add upstream'
+alias gmu='git-merge-upstream' # --> defined as function
 
 # function
 # --> git
@@ -88,6 +97,14 @@ function git-branch-delete-by-name () {
 ## get branch name with name
 function git-branch-by-name () {
   git branch | grep $1 | tr -d ' ' | tr -d '*' | while read _branch; do echo ${_branch}; done
+}
+
+## merge master of upstream
+### this will be used for OSS commitment
+function git-merge-upstream () {
+  git checkout master
+  git merge uptream/master
+  git push
 }
 
 # --> peco
