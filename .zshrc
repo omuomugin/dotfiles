@@ -102,6 +102,7 @@ function git-branch-by-name () {
 ## merge master of upstream
 ### this will be used for OSS commitment
 function git-merge-upstream () {
+  git fetch upstream
   git checkout master
   git merge uptream/master
   git push
