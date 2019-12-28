@@ -71,6 +71,7 @@ alias restart='exec zsh -l'   # --> reset setting
 ### basic info
 alias gs='git status'
 alias gd='git diff'
+alias gl='git log'
 
 ### local actions
 alias ga='git add -A'
