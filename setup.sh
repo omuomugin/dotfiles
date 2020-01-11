@@ -14,16 +14,7 @@ echo "npm setup completed"
 mkdir $HOME/workspace
 echo "workspace dir created"
 
-# link dotfiles
-DOT_FILES=(
-  .gitconfig
-  .zshrc
-)
-
-for file in ${DOT_FILES[@]}
-  do
-    ln -s $HOME/dotfiles/$file $HOME/$file
-  done
+sh link_files.sh
 
 echo "linked dotfiles"
 

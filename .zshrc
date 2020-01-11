@@ -31,6 +31,10 @@ setopt always_last_prompt   # --> show file names
 setopt list_types           # --> show list types
 setopt no_beep              # --> disable beep sound
 
+# propt
+eval "$(starship init zsh)"
+export STARSHIP_CONFIG=$HOME/starship.toml
+
 # completion
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
@@ -46,6 +50,11 @@ compinit
 setopt correct
 setopt list_packed
 setopt auto_param_slash
+
+# --> auto suggestion (which will be installed by hombrew)
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+ZSH_AUTOSUGGEST_STRATEGY=(history)
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 
 # --> add color when completion
 export LSCOLORS=Exfxcxdxbxegedabagacad
@@ -121,25 +130,3 @@ function peco-src () {
 }
 zle -N peco-src
 bindkey '^l' peco-src
-
-# others
-# --> show command that took more than 3 seconds
-REPORTTIME=3
-TIMEFMT='
-total  %E
-user   %U
-system %S
-CPU    %P
-cmd    %J
-'
-
-# --> auto suggestion (which will be installed by hombrew)
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-ZSH_AUTOSUGGEST_STRATEGY=(history)
-ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
-
-# --> pure (which will be installed by npm)
-autoload -U promptinit; promptinit
-prompt pure
-PURE_GIT_DOWN_ARROW='-'
-PURE_GIT_UP_ARROW='+'
