@@ -13,6 +13,7 @@ brew "tmux"
 brew "docker"
 cask "docker"
 brew "docker-compose"
+brew "redis"
 
 # lang
 cask "java"
