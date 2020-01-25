@@ -75,6 +75,7 @@ setopt extended_history       # --> adding timestamp
 ## --> general
 alias bd='cd ../'             # --> back directroy
 alias restart='exec zsh -l'   # --> reset setting
+alias help='alias-help'       # --> reset setting
 
 ## --> git
 ### basic info
@@ -96,6 +97,29 @@ alias gbn='git-branch-by-name' # --> defined as function
 ### for OSS
 alias gau='git remote add upstream'
 alias gmu='git-merge-upstream' # --> defined as function
+
+function alias-help () {
+  echo "
+bd='cd ../'
+restart='exec zsh -l'
+
+gs='git status'
+gd='git diff'
+gl='git log'
+
+ga='git add -A'
+gcb='git checkout -b'
+gcm='git commit -m'
+gp='git push'
+
+gb='git branch'
+gbd='git-branch-delete-by-name'
+gbn='git-branch-by-name'
+
+gau='git remote add upstream'
+gmu='git-merge-upstream'
+  "
+}
 
 # function
 # --> git
