@@ -118,7 +118,7 @@ gbn='git-branch-by-name'
 
 gau='git remote add upstream'
 gmu='git-merge-upstream'
-  "
+"
 }
 
 # function
