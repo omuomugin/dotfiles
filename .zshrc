@@ -4,10 +4,12 @@ export PATH="$HOME/bin:$PATH"
 # --> this maybe more easy to install and set by hand
 # export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 ## go
-export GOPATH="$HOME/workspace"
+export GOPATH="$HOME/src"
 export PATH=$PATH:$(go env GOROOT)/bin:$GOPATH/bin
 ## ruby
+### rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init - zsh)"
 # node
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
