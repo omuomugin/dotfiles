@@ -18,9 +18,5 @@ sh link_files.sh
 
 echo "linked dotfiles"
 
-# setting up git
-sh git_setup.sh
-echo "git setup and ssh key is on clipboard"
-
 echo "setup completed...."
 exec zsh -l

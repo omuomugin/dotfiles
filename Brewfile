@@ -29,14 +29,15 @@ brew "starship"
 brew "zsh-autosuggestions"
 
 # app
-cask "google-chrome"
+# cask "google-chrome"
 cask "slack"
-cask "spotify"
 cask "intellij-idea"
 cask "atom"
 cask "visual-studio-code"
-# mas "Xcode", id: 497799835
+cask "clipy"
+cask "rectangle"
+cask "alfred"
+cask "1password"
 
 # keyboard
-cask "google-japanese-ime"
 cask "karabiner-elements"
