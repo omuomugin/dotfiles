@@ -29,7 +29,7 @@ brew "starship"
 brew "zsh-autosuggestions"
 
 # app
-# cask "google-chrome"
+cask "google-chrome"
 cask "slack"
 cask "intellij-idea"
 cask "atom"
