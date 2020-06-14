@@ -14,6 +14,7 @@ brew "docker"
 cask "docker"
 brew "docker-compose"
 brew "redis"
+brew "tree"
 
 # lang
 cask "java"
