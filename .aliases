@@ -1,0 +1,46 @@
+## --> general
+alias restart='exec zsh -l'   # --> reset setting
+alias ls='ls -lah'
+alias ll='ls -lh'
+alias bd='cd ../'             # --> back directroy
+alias h='history | tail -n 32'
+
+## --> git
+alias g="git"
+alias gs='git status'
+alias gd='git diff'
+alias gl='git log'
+alias ga='git add'
+alias gaa='git add -A'
+alias gc='git commit'
+alias gb='git branch'
+alias gcb='git checkout -b'
+alias gr='git rebase -i'
+alias gbd='git-branch-delete-by-name' # --> defined as function
+alias gbn='git-branch-by-name' # --> defined as function
+
+## --> app
+alias v='code' # --> vscode
+alias dc='docker-compose'
+alias d='docker'
+
+# function
+# --> git
+## delete all the branches starting with given word
+function git-branch-delete-by-name () {
+  git branch | grep $1 | tr -d ' ' | tr -d '*' | while read _branch; do git branch -D ${_branch}; done
+}
+
+## get branch name with name
+function git-branch-by-name () {
+  git branch | grep $1 | tr -d ' ' | tr -d '*' | while read _branch; do echo ${_branch}; done
+}
+
+## merge master of upstream
+### this will be used for OSS commitment
+function git-merge-upstream () {
+  git fetch upstream
+  git checkout master
+  git merge uptream/master
+  git push
+}

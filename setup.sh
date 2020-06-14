@@ -1,22 +1,25 @@
+#!/bin/sh
+
 xcode-select --install
 
 echo "start setting up...."
-
-# installing homebrew and other app by homebrew bundle
-sh homebrew_setup.sh
-echo "home brew completed"
-
-# installing tools from npm
-sh npm_setup.sh
-echo "npm setup completed"
 
 # create dir for code workspace
 mkdir $HOME/workspace
 echo "workspace dir created"
 
-sh link_files.sh
+# installing homebrew and other app by homebrew bundle
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew tap homebrew/bundle
+brew bundle install
+echo "homebrew ready"
 
-echo "linked dotfiles"
+# brew bundle
+brew bundle
+echo "installing brew completed"
+
+sh ./scripts/link_dotfiles.sh
 
 echo "setup completed...."
-exec zsh -l
+
+restart # --> alias

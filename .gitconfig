@@ -3,9 +3,23 @@
   name = omuomugin
 
 [color]
-  ui = auto
-  diff = auto
-  branch = auto
+  status      = auto
+  diff        = auto
+  branch      = auto
+  interactive = auto
+  grep        = auto
+  ui          = auto
+
+[commit]
+	template = ~/.gitmessage
+
+[rebase]
+  autosqaush = true
+  abbreviateCommands = true
+  autostash = true
+
+[github]
+	user = omuomugin
 
 [ghq]
   root = ~/workspace

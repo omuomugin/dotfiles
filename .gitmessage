@@ -1,0 +1,39 @@
+# <type>[optional scope]: <description>
+#
+# [optional body]
+#
+# [optional footer(s)]
+#
+# see also https://www.conventionalcommits.org/en/v1.0.0/
+#
+# ==== Conventional types ====
+# feat: introduces a new feature to the codebase
+# fix: patches a bug in your codebase
+# build: Changes that affect the build system or external dependencies
+# ci: Changes to our CI configuration files and scripts
+# docs: Documentation only changes
+# refactor: A code change that neither fixes a bug nor adds a feature
+# perf: A code change that improves performance
+# test: Adding missing tests or correcting existing tests
+# 
+# see also https://github.com/angular/angular/blob/master/CONTRIBUTING.md#-commit-message-format
+# 
+# ==== The Seven Rules ====
+# 1. Separate subject from body with a blank line
+# 2. Limit the subject line to 50 characters
+# 3. Capitalize the subject line
+# 4. Do not end the subject line with a period
+# 5. Use the imperative mood in the subject line
+# 6. Wrap the body at 72 characters
+# 7. Use the body to explain what and why vs. how
+#
+# How to Write a Git Commit Message http://chris.beams.io/posts/git-commit/
+#
+# Answer the following questions:
+#
+# 1. Why is this change necessary?
+# 2. How does it address the issue?
+# 3. What side effects does this change have?
+#
+# see also https://robots.thoughtbot.com/5-useful-tips-for-a-better-commit-message
+#

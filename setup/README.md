@@ -1,1 +1,0 @@
-scripts which is not called from `setup.sh`

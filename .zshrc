@@ -73,76 +73,8 @@ setopt hist_ignore_dups       # --> ignore duplicates
 setopt hist_ignore_space      # --> ignore starting from space
 setopt extended_history       # --> adding timestamp
 
-# alias
-## --> general
-alias bd='cd ../'             # --> back directroy
-alias restart='exec zsh -l'   # --> reset setting
-alias help='alias-help'       # --> reset setting
-
-## --> git
-### basic info
-alias gs='git status'
-alias gd='git diff'
-alias gl='git log'
-
-### local actions
-alias ga='git add -A'
-alias gcb='git checkout -b'
-alias gcm='git commit -m'
-alias gp='git push'
-
-### branch
-alias gb='git branch'
-alias gbd='git-branch-delete-by-name' # --> defined as function
-alias gbn='git-branch-by-name' # --> defined as function
-
-### for OSS
-alias gau='git remote add upstream'
-alias gmu='git-merge-upstream' # --> defined as function
-
-function alias-help () {
-  echo "
-bd='cd ../'
-restart='exec zsh -l'
-
-gs='git status'
-gd='git diff'
-gl='git log'
-
-ga='git add -A'
-gcb='git checkout -b'
-gcm='git commit -m'
-gp='git push'
-
-gb='git branch'
-gbd='git-branch-delete-by-name'
-gbn='git-branch-by-name'
-
-gau='git remote add upstream'
-gmu='git-merge-upstream'
-"
-}
-
-# function
-# --> git
-## delete all the branches starting with given word
-function git-branch-delete-by-name () {
-  git branch | grep $1 | tr -d ' ' | tr -d '*' | while read _branch; do git branch -D ${_branch}; done
-}
-
-## get branch name with name
-function git-branch-by-name () {
-  git branch | grep $1 | tr -d ' ' | tr -d '*' | while read _branch; do echo ${_branch}; done
-}
-
-## merge master of upstream
-### this will be used for OSS commitment
-function git-merge-upstream () {
-  git fetch upstream
-  git checkout master
-  git merge uptream/master
-  git push
-}
+# --> alias
+source $HOME/.aliases
 
 # --> peco
 ## show list for ghq list

@@ -1,43 +1,39 @@
 # Brewfile
-cask_args appdir: "/Applications"
 tap "homebrew/cask"
 tap "homebrew/core"
+tap "omuomugin/tap"
 
-# tools
-brew "ghq"
-brew "peco"
+brew "castit"
 brew "curl"
-brew "plantuml"
-brew "jq"
-brew "tmux"
 brew "docker"
-cask "docker"
-brew "docker-compose"
-brew "redis"
-
-# lang
-cask "java"
+brew "fzf"
+brew "ghq"
 brew "go"
-
-# env
+brew "graphviz"
+brew "httpie"
+brew "jq"
+brew "mysql"
 brew "nvm"
+brew "peco"
+brew "plantuml"
+brew "postgresql"
 brew "rbenv"
-brew "yarn"
-
-# zsh
+brew "redis"
+brew "sbt"
 brew "starship"
+brew "tmux"
+brew "tree"
+brew "yarn"
 brew "zsh-autosuggestions"
 
-# app
-cask "google-chrome"
-cask "slack"
-cask "intellij-idea"
-cask "atom"
-cask "visual-studio-code"
-cask "clipy"
-cask "rectangle"
-cask "alfred"
+cask_args appdir: "/Applications"
 cask "1password"
-
-# keyboard
+cask "alfred"
+cask "docker"
+cask "google-chrome"
+cask "intellij-idea"
+cask "java"
 cask "karabiner-elements"
+cask "rectangle"
+cask "slack"
+cask "visual-studio-code"
