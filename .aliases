@@ -10,12 +10,16 @@ alias g="git"
 alias gs='git status'
 alias gd='git diff'
 alias gl='git log'
+alias glp='git log --patch'
+alias glo='git log --oneline'
 alias ga='git add'
 alias gaa='git add -A'
 alias gc='git commit'
+alias gca='git commit --amend'
 alias gb='git branch'
 alias gcb='git checkout -b'
 alias gr='git rebase -i'
+alias gp='git push'
 alias gbd='git-branch-delete-by-name' # --> defined as function
 alias gbn='git-branch-by-name' # --> defined as function
 
