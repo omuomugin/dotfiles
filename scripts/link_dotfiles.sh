@@ -11,6 +11,7 @@ DOT_FILES=(
 
 for file in ${DOT_FILES[@]}
   do
+    rm $HOME/$file
     ln -s $HOME/workspace/github.com/omuomugin/dotfiles/$file $HOME/$file
   done
 

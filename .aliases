@@ -1,7 +1,7 @@
 ## --> general
 alias restart='exec zsh -l'   # --> reset setting
-alias ls='ls -lah'
-alias ll='ls -lh'
+alias ls='ls -a'
+alias ll='ls -lah'
 alias bd='cd ../'             # --> back directroy
 alias h='history | tail -n 32'
 
