@@ -28,4 +28,4 @@ sh ./scripts/link_dotfiles.sh
 
 echo "setup completed...."
 
-restart # --> alias
+exec zsh -l
