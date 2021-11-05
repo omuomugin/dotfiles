@@ -21,6 +21,7 @@ alias gb='git branch'
 alias gcb='git checkout -b'
 alias gr='git rebase -i'
 alias gp='git push'
+alias gpp='git push --force-with-lease'
 alias gbd='git-branch-delete-by-name' # --> defined as function
 alias gbn='git-branch-by-name' # --> defined as function
 
