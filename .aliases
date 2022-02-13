@@ -28,7 +28,7 @@ alias gbn='git-branch-by-name' # --> defined as function
 ## --> app
 alias v='code' # --> vscode
 alias dc='docker-compose'
-alias d='docker'
+alias a='atom'
 
 # function
 # --> git
