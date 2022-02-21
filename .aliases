@@ -13,6 +13,7 @@ alias gl='git log'
 alias glp='git log --patch'
 alias glo='git log --oneline'
 alias gll='git log --oneline' # ---> frequently used
+alias glf='git log --name-status'
 alias ga='git add'
 alias gaa='git add -A'
 alias gc='git commit'
