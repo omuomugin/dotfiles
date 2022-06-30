@@ -57,7 +57,10 @@ setopt list_packed
 setopt auto_param_slash
 
 # --> auto suggestion (which will be installed by hombrew)
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+# see also https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 ZSH_AUTOSUGGEST_STRATEGY=(history)
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 
