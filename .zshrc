@@ -11,11 +11,7 @@ export PATH=$PATH:$(go env GOROOT)/bin:$GOPATH/bin
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init - zsh)"
 ## node
-export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-### nodeenv 
-export PATH="$HOME/.nodenv/bin:$PATH"
+### nodenv
 eval "$(nodenv init -)"
 
 # general
