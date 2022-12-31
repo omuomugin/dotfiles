@@ -91,6 +91,4 @@ function peco-src () {
 zle -N peco-src
 bindkey '^l' peco-src
 
-# Hishtory Config:
-export PATH="$PATH:/Users/01027754/.hishtory"
-source /Users/01027754/.hishtory/config.zsh
+
