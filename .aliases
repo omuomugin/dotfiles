@@ -5,6 +5,7 @@ alias ll='ls -lah'
 alias bd='cd ../'             # --> back directroy
 alias h='history | tail -n 32'
 alias here='pwd'
+alias uuid='uuidgen | tr "[:upper:]" "[:lower:]"'
 
 ## --> git
 alias g="git"
