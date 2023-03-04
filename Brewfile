@@ -2,6 +2,7 @@
 tap "homebrew/cask"
 tap "homebrew/core"
 tap "omuomugin/tap"
+tap "knqyf263/pet"
 
 brew "curl"
 brew "docker"
@@ -29,6 +30,7 @@ brew "awscli"
 brew "k6"
 brew "terraform"
 brew "zsh-autosuggestions"
+brew "pet"
 
 # -> self created tool
 brew "castit"
@@ -44,3 +46,4 @@ cask "rectangle"
 cask "slack"
 cask "visual-studio-code"
 cask "raindropio"
+cask "alt-tab"
