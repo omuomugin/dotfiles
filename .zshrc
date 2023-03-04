@@ -67,13 +67,12 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 # history
 HISTFILE=$HOME/.zsh-history
-HISTSIZE=1000
-SAVEHIST=1000
-HISTTIMEFORMAT="[%Y/%M/%D %H:%M:%S] "
+HISTSIZE=100000
+SAVEHIST=1000000
 setopt share_history          # --> share history between other terminal
-setopt hist_ignore_dups       # --> ignore duplicates
+setopt hist_ignore_all_dups   # --> ignore duplicates
 setopt hist_ignore_space      # --> ignore starting from space
-setopt extended_history       # --> adding timestamp
+setopt inc_append_history
 
 # --> alias
 source $HOME/.aliases
@@ -91,4 +90,38 @@ function peco-src () {
 zle -N peco-src
 bindkey '^l' peco-src
 
+function peco-history() {
+    BUFFER=`history -n 1 | tail -r | peco`
+    CURSOR=$#BUFFER
+    zle redisplay
+}
+zle -N peco-history
+bindkey '^h' peco-history
 
+function peco-cd() {
+    local selected_dir=`find . -type d -maxdepth 1 | peco`
+    if [ -n "$selected_dir" ]; then
+    BUFFER="cd ${selected_dir}"
+    zle accept-line
+  fi
+  zle clear-screen
+}
+zle -N peco-cd
+bindkey 'cd' peco-cd
+
+# --> pet
+## register pervious shell to snippets
+function prev() {
+  PREV=$(fc -lrn | head -n 1)
+  sh -c "pet new `printf %q "$PREV"`"
+}
+
+## search in pet
+function pet-select() {
+  BUFFER=$(pet search --query "$LBUFFER")
+  CURSOR=$#BUFFER
+  zle redisplay
+}
+zle -N pet-select
+stty -ixon
+bindkey '^p' pet-select
