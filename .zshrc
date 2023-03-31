@@ -2,9 +2,9 @@
 export PATH="$HOME/bin:$PATH"
 ## java
 # --> this maybe more easy to install and set by hand
-# export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+export JAVA_HOME=$(/usr/libexec/java_home -v 17)
 ## go
-export GOPATH="$HOME/src"
+export GOPATH="$HOME/go"
 export PATH=$PATH:$(go env GOROOT)/bin:$GOPATH/bin
 ## ruby
 ### rbenv
@@ -99,29 +99,23 @@ zle -N peco-history
 bindkey '^h' peco-history
 
 function peco-cd() {
-    local selected_dir=`find . -type d -maxdepth 1 | peco`
-    if [ -n "$selected_dir" ]; then
+  local selected_dir=`find . -type d -maxdepth 1 | peco`
+  if [ -n "$selected_dir" ]; then
     BUFFER="cd ${selected_dir}"
     zle accept-line
   fi
   zle clear-screen
 }
 zle -N peco-cd
-bindkey 'cd' peco-cd
+bindkey '^p' peco-cd
 
-# --> pet
-## register pervious shell to snippets
-function prev() {
-  PREV=$(fc -lrn | head -n 1)
-  sh -c "pet new `printf %q "$PREV"`"
+function peco-clipit() {
+  local selected_command=`go run main.go list | peco`
+  if [ -n "$selected_command" ]; then
+    BUFFER="go run main.go exec \"${selected_command}\""
+    zle accept-line
+  fi
+  zle clear-screen
 }
-
-## search in pet
-function pet-select() {
-  BUFFER=$(pet search --query "$LBUFFER")
-  CURSOR=$#BUFFER
-  zle redisplay
-}
-zle -N pet-select
-stty -ixon
-bindkey '^p' pet-select
+zle -N peco-clipit
+bindkey '^s' peco-clipit
