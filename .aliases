@@ -39,7 +39,7 @@ alias f='fleet ./'
 alias i='idea ./'
 
 ## --> util
-alias cl='kill -9 $(ps -x | grep "Google Chrome" | awk "{print $1}")'
+alias kill-chrome='kill -9 $(ps -x | grep "Google Chrome" | awk "{print $1}")'
 
 # function
 # --> git
