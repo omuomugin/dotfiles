@@ -38,6 +38,10 @@ alias v='code ./' # --> vscode
 alias f='fleet ./'
 alias i='idea ./'
 
+# pyhton
+alias python='python3'
+alias pip='pip3'
+
 ## --> util
 alias kill-chrome='kill -9 $(ps -x | grep "Google Chrome" | awk "{print $1}")'
 
