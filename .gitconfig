@@ -1,25 +1,34 @@
 [user]
-  email = omuomugin@out-box.dev
-  name = omuomugin
+    email = omuomugin@out-box.dev
+    name = omuomugin
 
 [color]
-  status      = auto
-  diff        = auto
-  branch      = auto
-  interactive = auto
-  grep        = auto
-  ui          = auto
+    status      = auto
+    diff        = auto
+    branch      = auto
+    interactive = auto
+    grep        = auto
+    ui          = auto
 
 [commit]
 	template = ~/.gitmessage
 
 [rebase]
-  autosqaush = true
-  abbreviateCommands = true
-  autostash = true
+    autosqaush = true
+    abbreviateCommands = true
+    autostash = true
+
+[log]
+    abbrevCommit = true
+
+[pull]
+    ff = only
+
+[fetch]
+    prune = true
 
 [github]
 	user = omuomugin
 
 [ghq]
-  root = ~/workspace
+    root = ~/workspace
