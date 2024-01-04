@@ -1,5 +1,5 @@
 [user]
-    email = omuomugin@out-box.dev
+    email = m@omuomugin.com
     name = omuomugin
 
 [color]
@@ -12,6 +12,9 @@
 
 [commit]
 	template = ~/.gitmessage
+
+[branch]
+    sort = authordate
 
 [rebase]
     autosqaush = true

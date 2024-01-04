@@ -10,7 +10,7 @@ alias uuid='uuidgen | tr "[:upper:]" "[:lower:]" | tr -d "\n" | pbcopy'
 ## --> git
 alias g="git"
 alias gs='git status'
-alias gsw='git switch'
+alias gsw='git switch -'
 alias gd='git diff'
 alias gl='git log'
 alias glp='git log --patch'
@@ -30,7 +30,7 @@ alias gbd='git-branch-delete-by-name' # --> defined as function
 alias gbn='git-branch-by-name' # --> defined as function
 
 ## --> docker
-alias dc='docker-compose'
+alias dc='docker compose'
 alias d='docker'
 
 ## --> IDE
