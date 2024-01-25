@@ -37,7 +37,7 @@ brew "castit"
 
 cask_args appdir: "/Applications"
 cask "1password"
-cask "alfred"
+cask "raycast"
 cask "docker"
 cask "google-chrome"
 cask "jetbrains-toolbox"
