@@ -14,7 +14,7 @@
 	template = ~/.gitmessage
 
 [branch]
-    sort = authordate
+    sort = -authordate
 
 [rebase]
     autosqaush = true
