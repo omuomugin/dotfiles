@@ -9,7 +9,7 @@ mkdir $HOME/workspace
 echo "workspace dir created"
 
 # installing homebrew and other app by homebrew bundle
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew tap homebrew/bundle
 
 # in case if failed
