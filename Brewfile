@@ -1,9 +1,8 @@
 # Brewfile
-tap "homebrew/cask"
-tap "homebrew/core"
 tap "omuomugin/tap"
 tap "knqyf263/pet"
 
+brew "java"
 brew "curl"
 brew "docker"
 brew "fzf"

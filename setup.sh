@@ -24,6 +24,14 @@ echo "homebrew ready"
 brew bundle
 echo "installing brew completed"
 
+# zsh-autosuggestions
+## see also https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+
+# java
+## see also https://formulae.brew.sh/formula/openjdk
+sudo ln -sfn $(brew --prefix)/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
+
 sh ./scripts/link_dotfiles.sh
 
 echo "setup completed...."
