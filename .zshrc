@@ -52,6 +52,7 @@ setopt correct
 setopt list_packed
 setopt auto_param_slash
 
+# --> auto suggestion
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 ZSH_AUTOSUGGEST_STRATEGY=(history)
