@@ -16,13 +16,18 @@
 [branch]
     sort = -authordate
 
+[diff]
+    algorithm = histogram
+
 [rebase]
     autosqaush = true
     abbreviateCommands = true
-    autostash = true
 
 [log]
     abbrevCommit = true
+
+[push]
+    autoSetupRemote = true
 
 [pull]
     ff = only
