@@ -10,6 +10,9 @@
     grep        = auto
     ui          = auto
 
+[column]
+    ui = auto
+
 [commit]
 	template = ~/.gitmessage
 
@@ -18,10 +21,6 @@
 
 [diff]
     algorithm = histogram
-
-[rebase]
-    autosqaush = true
-    abbreviateCommands = true
 
 [log]
     abbrevCommit = true
