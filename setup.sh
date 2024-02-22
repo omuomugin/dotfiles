@@ -32,11 +32,10 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosugges
 ## see also https://formulae.brew.sh/formula/openjdk
 sudo ln -sfn $(brew --prefix)/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
 
-# general
-## hide all icons in Desktop
-defaults write com.apple.finder CreateDesktop false
-killall Finder
+# mac os general
+sh ./scripts/mac_os_set_default.sh
 
+# closing
 sh ./scripts/link_dotfiles.sh
 
 echo "setup completed...."
