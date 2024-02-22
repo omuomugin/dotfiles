@@ -10,7 +10,7 @@ alias uuid='uuidgen | tr "[:upper:]" "[:lower:]" | tr -d "\n" | pbcopy'
 ## --> git
 alias g="git"
 alias gs='git status'
-alias gsw='git switch -'
+alias go='git open' # --> from paulirish/git-open installed by afx
 alias gd='git diff'
 alias gdw='git diff --word-diff'
 alias gl='git log'
@@ -21,7 +21,7 @@ alias ga='git add'
 alias gaa='git add -A'
 alias gc='git commit'
 alias gca='git commit --amend'
-alias gb='git branch'
+alias gb='peco-git-branch'
 alias gcb='git checkout -b'
 alias gr='git rebase -i'
 alias gp='git push --force-with-lease'

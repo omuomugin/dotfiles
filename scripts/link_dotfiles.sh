@@ -7,6 +7,9 @@ DOT_FILES=(
   starship.toml
   .aliases
   .gitmessage
+  # afx
+  .config/afx/github.yaml
+  .config/afx/gh-extensions.yaml
 )
 
 for file in ${DOT_FILES[@]}

@@ -58,6 +58,10 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_STRATEGY=(history)
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 
+# afx
+source <(afx init)
+source <(afx completion zsh)
+
 # --> add color when completion
 export LSCOLORS=Exfxcxdxbxegedabagacad
 export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
@@ -77,7 +81,7 @@ source $HOME/.aliases
 
 # --> peco
 ## show list for ghq list
-function peco-src () {
+function peco-ghq () {
   local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
   if [ -n "$selected_dir" ]; then
     BUFFER="cd ${selected_dir}"
@@ -85,8 +89,8 @@ function peco-src () {
   fi
   zle clear-screen
 }
-zle -N peco-src
-bindkey '^l' peco-src
+zle -N peco-ghq
+bindkey '^l' peco-ghq
 
 function peco-history() {
     BUFFER=`history -n 1 | tail -r | peco`
@@ -96,24 +100,10 @@ function peco-history() {
 zle -N peco-history
 bindkey '^h' peco-history
 
-function peco-cd() {
-  local selected_dir=`find . -type d -maxdepth 1 | peco`
-  if [ -n "$selected_dir" ]; then
-    BUFFER="cd ${selected_dir}"
-    zle accept-line
-  fi
-  zle clear-screen
+function peco-git-branch() {
+    BUFFER=`git branch | peco`
+    CURSOR=$#BUFFER
+    zle redisplay
 }
-zle -N peco-cd
-bindkey '^p' peco-cd
+zle -N peco-git-branch
 
-function peco-clipit() {
-  local selected_command=`go run main.go list | peco`
-  if [ -n "$selected_command" ]; then
-    BUFFER="go run main.go exec \"${selected_command}\""
-    zle accept-line
-  fi
-  zle clear-screen
-}
-zle -N peco-clipit
-bindkey '^s' peco-clipit

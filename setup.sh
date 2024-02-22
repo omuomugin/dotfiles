@@ -4,6 +4,8 @@ xcode-select --install
 
 echo "start setting up...."
 
+sh ./scripts/link_dotfiles.sh
+
 # create dir for code workspace
 mkdir $HOME/workspace
 echo "workspace dir created"
@@ -35,9 +37,13 @@ sudo ln -sfn $(brew --prefix)/opt/openjdk/libexec/openjdk.jdk /Library/Java/Java
 # mac os general
 sh ./scripts/mac_os_set_default.sh
 
-# closing
-sh ./scripts/link_dotfiles.sh
+# afx
+echo "installing afx"
+curl -sL https://raw.githubusercontent.com/babarot/afx/HEAD/hack/install | sh
+afx install
+echo "installed afx"
 
+# closing
 echo "setup completed...."
 
 exec zsh -l

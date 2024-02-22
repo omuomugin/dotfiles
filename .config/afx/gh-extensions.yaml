@@ -1,0 +1,9 @@
+github:
+- name: seachicken/gh-poi
+  description: Safely clean up your local branches
+  owner: seachicken
+  repo: gh-poi
+  as:
+    gh-extension:
+      name: gh-poi
+      tag: v0.9.0

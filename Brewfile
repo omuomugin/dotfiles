@@ -30,6 +30,7 @@ brew "k6"
 brew "terraform"
 brew "zsh-autosuggestions"
 brew "pet"
+bewq "kubectx"
 
 # -> self created tool
 brew "castit"
