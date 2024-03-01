@@ -92,6 +92,7 @@ function peco-ghq () {
 zle -N peco-ghq
 bindkey '^l' peco-ghq
 
+## show list for history
 function peco-history() {
     BUFFER=`history -n 1 | tail -r | peco`
     CURSOR=$#BUFFER
@@ -100,10 +101,27 @@ function peco-history() {
 zle -N peco-history
 bindkey '^h' peco-history
 
+## show list for git-branch
 function peco-git-branch() {
-    BUFFER=`git branch | peco`
-    CURSOR=$#BUFFER
-    zle redisplay
+    local selected_branch=$(git branch --format='%(refname:short)' | peco )
+    if [ -n "$selected_branch" ]; then
+      BUFFER="git switch ${selected_branch}"
+      zle accept-line
+    fi
+    zle clear-screen
 }
 zle -N peco-git-branch
+bindkey '^b' peco-git-branch
+
+function peco-git-log() {
+    local selected_commit=$(git log --oneline -n 20 | peco | awk '{print $1}')
+    if [ -n "$selected_commit" ]; then
+      BUFFER+="$selected_commit"
+      CURSOR=$#BUFFER
+      zle redisplay
+    fi
+    zle clear-screen
+}
+zle -N peco-git-log
+bindkey '^i' peco-git-log
 

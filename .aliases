@@ -19,11 +19,13 @@ alias glo='git log --oneline'
 alias glf='git log --name-status'
 alias ga='git add'
 alias gaa='git add -A'
-alias gc='git commit'
+alias gc='git commit -m'
+alias gcf='git commit --fixup=HEAD' # --> use with `git rebase --autosquash`
 alias gca='git commit --amend'
-alias gb='peco-git-branch'
+alias gb='git branch'
 alias gcb='git checkout -b'
 alias gr='git rebase -i'
+alias gra='git rebase --autosquash -i'
 alias gp='git push --force-with-lease'
 alias gbd='git-branch-delete-by-name' # --> defined as function
 alias gbn='git-branch-by-name' # --> defined as function
@@ -50,13 +52,4 @@ function git-branch-delete-by-name () {
 ## get branch name with name
 function git-branch-by-name () {
   git branch | grep $1 | tr -d ' ' | tr -d '*' | while read _branch; do echo ${_branch}; done
-}
-
-## merge master of upstream
-### this will be used for OSS commitment
-function git-merge-upstream () {
-  git fetch upstream
-  git checkout master
-  git merge uptream/master
-  git push
 }

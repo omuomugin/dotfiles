@@ -17,7 +17,7 @@
 	template = ~/.gitmessage
 
 [branch]
-    sort = -commiterdate
+    sort = -committerdate
 
 [diff]
     algorithm = histogram
