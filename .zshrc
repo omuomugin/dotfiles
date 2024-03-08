@@ -123,5 +123,5 @@ function peco-git-log() {
     zle clear-screen
 }
 zle -N peco-git-log
-bindkey '^i' peco-git-log
+bindkey '^p' peco-git-log
 
