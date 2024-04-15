@@ -69,8 +69,10 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 # history
 HISTFILE=$HOME/.zsh-history
-HISTSIZE=100000
+HISTSIZE=1000000
 SAVEHIST=1000000
+HISTORY_IGNORE="(ls|cd|pwd|exit)*"
+
 setopt share_history          # --> share history between other terminal
 setopt hist_ignore_all_dups   # --> ignore duplicates
 setopt hist_ignore_space      # --> ignore starting from space

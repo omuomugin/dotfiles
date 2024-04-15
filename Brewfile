@@ -31,6 +31,7 @@ brew "terraform"
 brew "zsh-autosuggestions"
 brew "pet"
 bewq "kubectx"
+bewq "MonitorControl"
 
 # -> self created tool
 brew "castit"
