@@ -40,6 +40,13 @@ alias v='code ./' # --> vscode
 alias f='fleet ./'
 alias i='idea ./'
 
+## --> k8s
+alias kctl='kubectl'
+alias kctx='kubectx | cat | peco | xargs kubectx' # --> use peco for interactive mode
+alias kns='kubens | cat | peco | xargs kubens' # --> use peco for interactive mode
+alias kctxl='kubectx -c'
+alias knsl='kubens -c'
+
 ## --> util
 alias kill-chrome='kill -9 $(ps -x | grep "Google Chrome" | awk "{print $1}")'
 
