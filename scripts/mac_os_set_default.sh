@@ -20,6 +20,10 @@ defaults write -g com.apple.finder CreateDesktop -bool false
 ## show hidden files
 defaults write -g com.apple.finder AppleShowAllFiles YES
 
+# [Sonoma] 
+## Diable showing tool tip when switching language
+defaults write -g kCFPreferencesAnyApplication TSMLanguageIndicatorEnabled 0
+
 # reset
 killall Finder
 killall Dock
