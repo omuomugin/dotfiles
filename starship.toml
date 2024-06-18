@@ -15,3 +15,6 @@ disabled = true
 disabled = false
 use_12hr = true
 format = '[$time]($style) '
+
+[kubernetes]
+disabled = false
