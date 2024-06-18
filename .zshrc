@@ -53,6 +53,8 @@ setopt list_packed
 setopt auto_param_slash
 
 # --> auto suggestion
+## --> kubectl
+source <(kubectl completion zsh)
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 ZSH_AUTOSUGGEST_STRATEGY=(history)
