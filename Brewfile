@@ -22,7 +22,6 @@ brew "rbenv"
 brew "redis"
 brew "sbt"
 brew "starship"
-brew "tmux"
 brew "tree"
 brew "yarn"
 brew "gh"
@@ -32,9 +31,7 @@ brew "terraform"
 brew "zsh-autosuggestions"
 brew "pet"
 brew "kubectx"
-
-# -> self created tool
-brew "castit"
+brew "maccy"
 
 cask_args appdir: "/Applications"
 cask "1password"
