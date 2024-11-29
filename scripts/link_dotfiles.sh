@@ -7,9 +7,6 @@ DOT_FILES=(
   starship.toml
   .aliases
   .gitmessage
-  # afx
-  .config/afx/github.yaml
-  .config/afx/gh-extensions.yaml
 )
 
 for file in ${DOT_FILES[@]}
@@ -17,5 +14,9 @@ for file in ${DOT_FILES[@]}
     rm $HOME/$file
     ln -s $HOME/workspace/github.com/omuomugin/dotfiles/$file $HOME/$file
   done
+
+# karabiner
+rm $HOME/.config/karabiner/karabiner.json
+ln -s $HOME/workspace/github.com/omuomugin/dotfiles/karabiner.json $HOME/.config/karabiner/karabiner.json
 
 echo "linked dotfiles"

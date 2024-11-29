@@ -1,25 +1,30 @@
 dotfiles for omuomugin
 
-```
-# for the first time
-sh setup.sh 
+## Initial
 
-# just link the config files
+- install Google Chrome
+- Login to 1Password from Web
+- Open GitHub and Login
+- see https://github.com/omuomugin/dotfiles and download with zip (or else)
+- run `sh initial_setup.sh`
+
+## After installing application and git
+
+```sh
+sh ./scripts/git_setup.sh
+```
+
+generate key and add key to GitHub Developers Setting
+
+
+```sh
+ghq get git@github.com:omuomugin/dotfiles.git
+# move to omuomugin/dotfiles
 sh ./scripts/link_dotfiles.sh
 ```
 
-## Karabiner-Elements
-copy `karabiner.json` to config directory.
-see also https://karabiner-elements.pqrs.org/docs/manual/operation/export/
+## Terminal Profile
+import `terminal_profile.terminal` from terminal setting.
 
 ## Raycast
 import `xxxx.raycast` from raycast setting.
-
-## Warning
-dotfiles are symbolic linked through `ghq` workspace
-
-
-e.g.
-```
-.aliases -> $HOME/workspace/github.com/omuomugin/dotfiles/.aliases
-```

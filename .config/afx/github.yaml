@@ -1,9 +1,0 @@
-github:
-- name: paulirish/git-open
-  description: Type `git open` to open the GitHub page or website for a repository in your browser.
-  owner: paulirish
-  repo: git-open
-  command:
-    link:
-    - from: git-open
-      to: git-open

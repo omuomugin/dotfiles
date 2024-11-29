@@ -4,7 +4,8 @@ defaults write -g NSGlobalDomain KeyRepeat -int 2
 defaults write -g NSGlobalDomain InitialKeyRepeat -int 15
 
 ## Mouse speed
-defaults write -g com.apple.mouse.scaling 5
+defaults write -g com.apple.mouse.scaling 7
+defaults write -g com.apple.trackpad.scaling 7
 
 ## Disable the "Are you sure you want to open this application?" dialog
 defaults write com.apple.LaunchServices LSQuarantine -bool false
@@ -23,7 +24,3 @@ defaults write -g com.apple.finder AppleShowAllFiles YES
 # [Sonoma] 
 ## Diable showing tool tip when switching language
 defaults write -g kCFPreferencesAnyApplication TSMLanguageIndicatorEnabled 0
-
-# reset
-killall Finder
-killall Dock

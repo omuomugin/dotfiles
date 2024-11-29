@@ -10,7 +10,6 @@ alias uuid='uuidgen | tr "[:upper:]" "[:lower:]" | tr -d "\n" | pbcopy'
 ## --> git
 alias g="git"
 alias gs='git status'
-alias go='git open' # --> from paulirish/git-open installed by afx
 alias gd='git diff'
 alias gdw='git diff --word-diff'
 alias gl='git log'
