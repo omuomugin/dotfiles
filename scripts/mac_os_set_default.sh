@@ -36,6 +36,9 @@ defaults write com.apple.LaunchServices LSQuarantine -bool false
 ### Diable showing tool tip when switching language
 defaults write kCFPreferencesAnyApplication TSMLanguageIndicatorEnabled 0
 
+# ライブ変換をオフ
+defaults write -g JIMPrefLiveConversionKey -bool false
+
 # reset
 killall Dock
 killall Finder
