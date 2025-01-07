@@ -32,10 +32,6 @@ setopt always_last_prompt   # --> show file names
 setopt list_types           # --> show list types
 setopt no_beep              # --> disable beep sound
 
-# propt
-eval "$(starship init zsh)"
-export STARSHIP_CONFIG=$HOME/starship.toml
-
 # completion
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
@@ -53,12 +49,14 @@ setopt list_packed
 setopt auto_param_slash
 
 # --> auto suggestion
-## --> kubectl
-source <(kubectl completion zsh)
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 ZSH_AUTOSUGGEST_STRATEGY=(history)
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+
+# git prompt
+source ~/.zsh/git-prompt.sh
+setopt PROMPT_SUBST ; PS1='%F{cyan}%~%f %F{red}$(__git_ps1 "(%s)")%f\$ '
 
 # --> add color when completion
 export LSCOLORS=Exfxcxdxbxegedabagacad

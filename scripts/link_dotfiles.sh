@@ -4,7 +4,6 @@
 DOT_FILES=(
   .gitconfig
   .zshrc
-  starship.toml
   .aliases
   .gitmessage
 )

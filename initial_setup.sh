@@ -9,9 +9,6 @@ echo "workspace dir created"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew tap homebrew/bundle
 
-# add eval command
-# TODO
-
 brew bundle install
 echo "homebrew ready"
 
@@ -22,6 +19,9 @@ echo "installing brew completed"
 # zsh-autosuggestions
 ## see also https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+
+# git-prompt
+curl -o ~/.zsh/git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
 
 # java
 ## see also https://formulae.brew.sh/formula/openjdk
