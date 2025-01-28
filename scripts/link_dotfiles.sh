@@ -18,4 +18,9 @@ for file in ${DOT_FILES[@]}
 rm $HOME/.config/karabiner/karabiner.json
 ln -s $HOME/workspace/github.com/omuomugin/dotfiles/karabiner.json $HOME/.config/karabiner/karabiner.json
 
+# ghostty
+## see also https://ghostty.org/docs/config#xdg-configuration-path-(all-platforms):
+rm $HOME/.config/ghostty/config
+ln -s $HOME/workspace/github.com/omuomugin/dotfiles/.ghostty $HOME/.config/ghostty/config
+
 echo "linked dotfiles"
