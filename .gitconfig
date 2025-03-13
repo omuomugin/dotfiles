@@ -19,20 +19,33 @@
 [branch]
     sort = -committerdate
 
+[tag]
+    sort = version:refname
+
+[init]
+    defaultBranch = main
+
 [diff]
     algorithm = histogram
+    colorMoved = plain
+    mnemonicPrefix = true
+    renames = true
 
 [log]
     abbrevCommit = true
 
 [push]
+    default = simple
     autoSetupRemote = true
+    followTags = true
 
 [pull]
     ff = only
 
 [fetch]
     prune = true
+    pruneTags = true
+    all = true
 
 [github]
 	user = omuomugin
