@@ -27,10 +27,12 @@ brew "gh"
 brew "awscli"
 brew "k6"
 brew "terraform"
-brew "zsh-autosuggestions"
 brew "pet"
 brew "kubectx"
 brew "maccy"
+
+brew "zsh-completions"
+brew "zsh-autosuggestions"
 
 cask_args appdir: "/Applications"
 cask "1password"

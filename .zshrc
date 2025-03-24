@@ -32,7 +32,19 @@ setopt always_last_prompt   # --> show file names
 setopt list_types           # --> show list types
 setopt no_beep              # --> disable beep sound
 
-# completion
+# --> completion && auto suggestion
+chmod -R go-w /opt/homebrew/share
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+  source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+  autoload -Uz compinit
+  compinit
+fi
+
+# --> completion setting
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' verbose yes
@@ -48,9 +60,7 @@ setopt correct
 setopt list_packed
 setopt auto_param_slash
 
-# --> auto suggestion
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-
+# --> auto suggestion setting
 ZSH_AUTOSUGGEST_STRATEGY=(history)
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 
@@ -76,6 +86,16 @@ setopt inc_append_history
 
 # --> alias
 source $HOME/.aliases
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f "$HOME/Downloads/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/Downloads/google-cloud-sdk/path.zsh.inc"; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f "$HOME/Downloads/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/Downloads/google-cloud-sdk/completion.zsh.inc"; fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # --> peco
 ## show list for ghq list
@@ -122,14 +142,3 @@ function peco-git-log() {
 }
 zle -N peco-git-log
 bindkey '^p' peco-git-log
-
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/01027754/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/01027754/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/01027754/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/01027754/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
