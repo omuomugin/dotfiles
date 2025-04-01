@@ -46,6 +46,11 @@ alias kns='kubens | cat | peco | xargs kubens' # --> use peco for interactive mo
 alias kctxl='kubectx -c'
 alias knsl='kubens -c'
 
+## --> dart
+alias da='dart'
+alias dar='dart run'
+alias dap='dart pub'
+
 ## --> util
 alias kill-chrome='kill -9 $(ps -x | grep "Google Chrome" | awk "{print $1}")'
 
