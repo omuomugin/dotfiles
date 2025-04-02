@@ -10,6 +10,8 @@ export PATH=$PATH:$(go env GOROOT)/bin:$GOPATH/bin
 ### rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init - zsh)"
+## dart
+export PATH="$PATH":"$HOME/.pub-cache/bin"
 ## node
 ### nodenv
 eval "$(nodenv init -)"
