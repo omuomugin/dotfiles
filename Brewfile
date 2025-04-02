@@ -32,6 +32,7 @@ brew "terraform"
 brew "pet"
 brew "kubectx"
 brew "git-who"
+brew "protobuf"
 
 brew "zsh-completions"
 brew "zsh-autosuggestions"
