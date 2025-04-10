@@ -21,8 +21,7 @@ defaults write com.apple.finder "CreateDesktop" -bool "false"
 
 # Finder
 ## show hidden files
-defaults write com.apple.finder "AppleShowAllFiles" -bool "false"
-defaults write com.apple.finder "AppleShowAllFiles" -bool "false"
+defaults write com.apple.finder "AppleShowAllFiles" -bool "true"
 defaults write com.apple.finder "FXRemoveOldTrashItems" -bool "true"
 
 # Menu Bar
@@ -43,4 +42,4 @@ defaults write -g JIMPrefLiveConversionKey -bool false
 killall Dock
 killall Finder
 
-# you should reboot if you want to apply it all
+echo "you should reboot if you want to apply it all"
