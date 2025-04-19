@@ -30,6 +30,9 @@ alias gpp='git push --force-with-lease'
 alias gbd='git-branch-delete-by-name' # --> defined as function
 alias gbn='git-branch-by-name' # --> defined as function
 
+### --> ghq
+alias gg='ghq get'
+
 ## --> docker
 alias dc='docker compose'
 alias d='docker'
