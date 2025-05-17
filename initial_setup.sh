@@ -32,9 +32,6 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 ## maybe need to restart
 nvm install 22
 
-# biff
-sh ./install/install_biff.sh
-
 # set mac os settings
 sh ./scripts/mac_os_set_default.sh
 
