@@ -59,11 +59,14 @@
 [interactive]
     diffFilter = delta --color-only
 
-[delta]
-    navigate = true
-    side-by-side = true
+[include]
+    path = /Users/omuomugin/themes.gitconfig
 
-    dark = true
+[delta]
+    features = my-theme
+    navigate = true
+
+    # dark = true
     # light = true
 
 [merge]

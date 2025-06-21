@@ -6,6 +6,7 @@ DOT_FILES=(
   .zshrc
   .aliases
   .gitmessage
+  themes.gitconfig
 )
 
 for file in ${DOT_FILES[@]}
