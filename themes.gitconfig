@@ -27,12 +27,17 @@
 #    theme. E.g. a link to your github user page.
 
 [delta "my-theme"]
-    # based on "mantis-shrimp-lite"
+    # based on "mantis-shrimp-lite" and  "chameleon"
     # features
     dark = true
     side-by-side = true
     keep-plus-minus-markers = true
     line-numbers = true
+    # general
+    ## diff でその行が削除された場合や新規に追加された場合で色が適用されなかったので個別に上書きしている
+    map-styles = \
+       bold purple => bold brightred, \
+       bold cyan => bold brightgreen
     # file decorations
     file-added-label = [+]
     file-copied-label = [==]
@@ -41,18 +46,18 @@
     file-renamed-label = [->]
     file-style = brightwhite bold
     file-decoration-style = "#434C5E" ul
-    zero-style = syntax
-    syntax-theme = Monokai Extended
+    # commit
     commit-style = yellow bold italic
     commit-decoration-style = yellow ul
+    # diff decorations
     hunk-header-style = omit
-    minus-style = brightred bold
-    minus-emph-style = bold "#202020" "#FF5555"
-    minus-non-emph-style = bold
     plus-style = brightgreen bold
-    plus-emph-style = bold "#202020" "#50FA7B"
+    plus-emph-style = bold "#434C5E" brightgreen
     plus-non-emph-style = bold
-    # line numbers
+    minus-style = brightred bold
+    minus-emph-style = bold "#434C5E" brightred
+    minus-non-emph-style = bold
+    ## line numbers
     line-numbers-left-format = " {nm:>3} │"
     line-numbers-left-style = "#434C5E"
     line-numbers-right-format = " {np:>3} │"
