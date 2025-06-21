@@ -10,6 +10,9 @@
     grep        = auto
     ui          = auto
 
+[core]
+    pager = delta
+
 [column]
     ui = auto
 
@@ -52,3 +55,16 @@
 
 [ghq]
     root = ~/workspace
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true
+    side-by-side = true
+
+    dark = true
+    # light = true
+
+[merge]
+    conflictstyle = zdiff3

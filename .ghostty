@@ -12,3 +12,4 @@ window-padding-y = 24
 
 keybind = super+shift+j=write_screen_file:paste
 keybind = super+alt+shift+j=write_screen_file:open
+keybind = shift+enter=text:\n

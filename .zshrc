@@ -10,8 +10,12 @@ export PATH=$PATH:$(go env GOROOT)/bin:$GOPATH/bin
 ### rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init - zsh)"
-## dart
+## dart & flutter
+export PATH="$PATH":"$HOME/flutter/bin"
 export PATH="$PATH":"$HOME/.pub-cache/bin"
+### Android
+export ANDROID_HOME=~/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools
 ## node
 ### nodenv
 eval "$(nodenv init -)"

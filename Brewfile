@@ -33,6 +33,7 @@ brew "pet"
 brew "kubectx"
 brew "git-who"
 brew "protobuf"
+brew "git-delta"
 
 brew "zsh-completions"
 brew "zsh-autosuggestions"
