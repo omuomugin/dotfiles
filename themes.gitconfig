@@ -52,10 +52,10 @@
     # diff decorations
     hunk-header-style = omit
     plus-style = brightgreen bold
-    plus-emph-style = bold "#434C5E" brightgreen
+    plus-emph-style = brightgreen bold
     plus-non-emph-style = bold
     minus-style = brightred bold
-    minus-emph-style = bold "#434C5E" brightred
+    minus-emph-style = brightred bold
     minus-non-emph-style = bold
     ## line numbers
     line-numbers-left-format = " {nm:>3} │"
