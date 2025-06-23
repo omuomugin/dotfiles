@@ -60,7 +60,7 @@
     diffFilter = delta --color-only
 
 [include]
-    path = /Users/omuomugin/themes.gitconfig
+    path = ~/themes.gitconfig
 
 [delta]
     features = my-theme
