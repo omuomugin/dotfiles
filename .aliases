@@ -30,8 +30,8 @@ alias gbd='git-branch-delete-by-name' # --> defined as function
 alias gbn='git-branch-by-name' # --> defined as function
 
 ## --> gh
-alias ghpr='gh pr view --web'
-alias ghc='gh pr checks --watch'
+alias ghpr='ghpr-func'
+alias ghc='gh pr checks -w'
 alias ghb='gh browse'
 
 ### --> ghq
@@ -74,4 +74,13 @@ function git-branch-delete-by-name () {
 ## get branch name with name
 function git-branch-by-name () {
   git branch | grep $1 | tr -d ' ' | tr -d '*' | while read _branch; do echo ${_branch}; done
+}
+
+## gh pr view or create
+function ghpr-func () {
+  if gh pr view &>/dev/null; then
+    gh pr view -w
+  else
+    gh pr create -w
+  fi
 }
