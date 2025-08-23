@@ -30,9 +30,8 @@ alias gbd='git-branch-delete-by-name' # --> defined as function
 alias gbn='git-branch-by-name' # --> defined as function
 
 ## --> gh
-alias ghpr='ghpr-func'
+alias ghp='ghpr-func'
 alias ghc='gh pr checks -w'
-alias ghb='gh browse'
 
 ### --> ghq
 alias gg='ghq get'
