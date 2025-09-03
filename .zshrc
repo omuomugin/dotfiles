@@ -15,7 +15,7 @@ export PATH="$PATH":"$HOME/flutter/bin"
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 ### Android
 export ANDROID_HOME=~/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools
+export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools
 ## node
 ### nodenv
 eval "$(nodenv init -)"
