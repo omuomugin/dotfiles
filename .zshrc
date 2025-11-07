@@ -1,5 +1,6 @@
 # path
 export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 ## java
 # --> this maybe more easy to install and set by hand
 export JAVA_HOME=$(/usr/libexec/java_home -v 17)
