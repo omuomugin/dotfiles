@@ -24,4 +24,8 @@ ln -s $HOME/workspace/github.com/omuomugin/dotfiles/karabiner.json $HOME/.config
 rm $HOME/.config/ghostty/config
 ln -s $HOME/workspace/github.com/omuomugin/dotfiles/.ghostty $HOME/.config/ghostty/config
 
+# mise
+rm $HOME/.config/mise/config.toml
+ln -s $HOME/workspace/github.com/omuomugin/dotfiles/.mise.config.toml $HOME/.config/mise/config.toml
+
 echo "linked dotfiles"

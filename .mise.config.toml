@@ -1,0 +1,3 @@
+[tools]
+actionlint = "latest"
+awscli = { version = "latest", symlink_bins = "true" }
