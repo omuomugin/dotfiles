@@ -5,10 +5,12 @@ xcode-select --install
 mkdir $HOME/workspace
 echo "workspace dir created"
 
+# install tools using mise
+curl https://mise.run | sh
+
 # installing homebrew and other app by homebrew bundle
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew tap homebrew/bundle
-
 brew bundle install
 echo "homebrew ready"
 
