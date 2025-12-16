@@ -1,0 +1,13 @@
+name: test clean install on MacOS
+
+on: push
+
+jobs:
+  test-clean-install:
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: setup
+        run: sh ${GITHUB_WORKSPACE}/initial_setup.sh
