@@ -98,16 +98,6 @@ setopt inc_append_history
 # --> alias
 source $HOME/.aliases
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f "$HOME/Downloads/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/Downloads/google-cloud-sdk/path.zsh.inc"; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f "$HOME/Downloads/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/Downloads/google-cloud-sdk/completion.zsh.inc"; fi
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 # --> peco
 ## show list for ghq list
 function peco-ghq () {
@@ -154,18 +144,3 @@ function peco-git-log() {
 zle -N peco-git-log
 bindkey '^p' peco-git-log
 
-function search-on-ghossty() {
-  # cmd + shift + j をシミュレート
-  osascript -e 'tell application "System Events" to keystroke "j" using {command down, shift down}'
-
-  # ghossty の出力を直接取得
-  local tmp_file_path=$(pbpaste) # クリップボードからパスを取得
-  echo $tmp_file_path
-
-  # パスを cat | peco に渡す
-  if [[ -f $tmp_file_path ]]; then
-    cat "$tmp_file_path" | peco
-  else
-    echo "Invalid path: $tmp_file_path"
-  fi
-}
