@@ -7,16 +7,11 @@ echo "workspace dir created"
 
 # install tools using mise
 curl https://mise.run | sh
+mise doctor
 
-# installing homebrew and other app by homebrew bundle
+# install tools using homebre
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew tap homebrew/bundle
-brew bundle install
-echo "homebrew ready"
-
-# brew bundle
 brew bundle
-echo "installing brew completed"
 
 # zsh-autosuggestions
 ## see also https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md

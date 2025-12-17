@@ -1,13 +1,10 @@
 # tap
-tap "dart-lang/dart"
-tap "homebrew/bundle"
 tap "k1low/tap"
 tap "ktr0731/evans"
 tap "omuomugin/tap"
 
 # brew
 brew "curl"
-brew "dart"
 brew "deno"
 brew "docker"
 brew "evans"

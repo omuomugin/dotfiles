@@ -5,25 +5,12 @@ export PATH="$HOME/.local/bin:$PATH"
 # mise
 eval "$(${HOME}/.local/bin/mise activate zsh)"
 
-## java
-# --> this maybe more easy to install and set by hand
-export JAVA_HOME=$(/usr/libexec/java_home -v 17)
-## go
-export GOPATH="$HOME/go"
-export PATH=$PATH:$(go env GOROOT)/bin:$GOPATH/bin
-## ruby
-### rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init - zsh)"
 ## dart & flutter
 export PATH="$PATH":"$HOME/flutter/bin"
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 ### Android
 export ANDROID_HOME=~/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools
-## node
-### nodenv
-eval "$(nodenv init -)"
 
 # general
 setopt no_flow_control
