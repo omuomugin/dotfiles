@@ -19,17 +19,8 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosugges
 # git-prompt
 curl -o ~/.zsh/git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
 
-# java
-## see also https://formulae.brew.sh/formula/openjdk
-sudo ln -sfn $(brew --prefix)/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
-
-# nodejs
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
-## maybe need to restart
-nvm install 22
-
 # set mac os settings
 sh ./scripts/mac_os_set_default.sh
 
 # reset
-sudo reboot
+# sudo reboot
