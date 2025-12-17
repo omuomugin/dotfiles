@@ -14,26 +14,24 @@ DOT_FILES=(
 
 for file in ${DOT_FILES[@]}
   do
-    rm "$HOME/$file"
-    ln -s "$DOTFILES_DIR/$file" "$HOME/$file"
+    ln -sf "$DOTFILES_DIR/$file" "$HOME/$file"
+    ls -l "$HOME/$file"
   done
 
-ls -l "$HOME/$file"
-
 # karabiner
-rm "$HOME/.config/karabiner/karabiner.json"
-ln -s "$DOTFILES_DIR/karabiner.json" "$HOME/.config/karabiner/karabiner.json"
+mkdir -p "$HOME/.config/karabiner"
+ln -sf "$DOTFILES_DIR/karabiner.json" "$HOME/.config/karabiner/karabiner.json"
 ls -l "$HOME/.config/karabiner/karabiner.json"
 
 # ghostty
 ## see also https://ghostty.org/docs/config#xdg-configuration-path-(all-platforms):
-rm "$HOME/.config/ghostty/config"
-ln -s "$DOTFILES_DIR/.ghostty" "$HOME/.config/ghostty/config"
+mkdir -p "$HOME/.config/ghostty"
+ln -sf "$DOTFILES_DIR/.ghostty" "$HOME/.config/ghostty/config"
 ls -l "$HOME/.config/ghostty/config"
 
 # mise
-rm "$HOME/.config/mise/config.toml"
-ln -s "$DOTFILES_DIR/.mise.config.toml" "$HOME/.config/mise/config.toml"
+mkdir -p "$HOME/.config/mise"
+ln -sf "$DOTFILES_DIR/.mise.config.toml" "$HOME/.config/mise/config.toml"
 ls -l "$HOME/.config/mise/config.toml"
 
 echo "linked dotfiles"
