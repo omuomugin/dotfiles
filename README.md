@@ -20,7 +20,7 @@ generate key and add key to GitHub Developers Setting
 ```sh
 ghq get git@github.com:omuomugin/dotfiles.git
 # move to omuomugin/dotfiles
-sh ./scripts/link_dotfiles.sh
+sh scripts/link_dotfiles.sh
 ```
 
 ## Terminal Profile

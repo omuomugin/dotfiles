@@ -2,6 +2,10 @@ name: test clean install on MacOS
 
 on: push
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   test-clean-install:
     runs-on: macos-latest
@@ -11,6 +15,12 @@ jobs:
 
       - name: setup
         run: sh ${GITHUB_WORKSPACE}/initial_setup.sh
+
+      - name: link dotfiles
+        run: DOTFILES_DIR=${GITHUB_WORKSPACE} sh ${GITHUB_WORKSPACE}/scripts/link_dotfiles.sh
+
+      - name: mise install
+        run: mise install
 
       - name: check mise
         # mise doctor will fail

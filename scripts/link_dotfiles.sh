@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Set dotfiles directory (default to the original path if not specified)
+DOTFILES_DIR=${DOTFILES_DIR:-$HOME/workspace/github.com/omuomugin/dotfiles}
+
 # link dotfiles
 DOT_FILES=(
   .gitconfig
@@ -11,21 +14,21 @@ DOT_FILES=(
 
 for file in ${DOT_FILES[@]}
   do
-    rm $HOME/$file
-    ln -s $HOME/workspace/github.com/omuomugin/dotfiles/$file $HOME/$file
+    rm "$HOME/$file"
+    ln -s "$DOTFILES_DIR/$file" "$HOME/$file"
   done
 
 # karabiner
-rm $HOME/.config/karabiner/karabiner.json
-ln -s $HOME/workspace/github.com/omuomugin/dotfiles/karabiner.json $HOME/.config/karabiner/karabiner.json
+rm "$HOME/.config/karabiner/karabiner.json"
+ln -s "$DOTFILES_DIR/karabiner.json" "$HOME/.config/karabiner/karabiner.json"
 
 # ghostty
 ## see also https://ghostty.org/docs/config#xdg-configuration-path-(all-platforms):
-rm $HOME/.config/ghostty/config
-ln -s $HOME/workspace/github.com/omuomugin/dotfiles/.ghostty $HOME/.config/ghostty/config
+rm "$HOME/.config/ghostty/config"
+ln -s "$DOTFILES_DIR/.ghostty" "$HOME/.config/ghostty/config"
 
 # mise
-rm $HOME/.config/mise/config.toml
-ln -s $HOME/workspace/github.com/omuomugin/dotfiles/.mise.config.toml $HOME/.config/mise/config.toml
+rm "$HOME/.config/mise/config.toml"
+ln -s "$DOTFILES_DIR/.mise.config.toml" "$HOME/.config/mise/config.toml"
 
 echo "linked dotfiles"
