@@ -2,9 +2,6 @@
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
-# mise
-eval "$(~/.local/bin/mise activate zsh)"
-
 ## dart & flutter
 export PATH="$PATH":"$HOME/flutter/bin"
 export PATH="$PATH":"$HOME/.pub-cache/bin"

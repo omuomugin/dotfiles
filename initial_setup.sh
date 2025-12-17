@@ -7,6 +7,7 @@ echo "workspace dir created"
 
 # install tools using mise
 curl https://mise.run | sh
+echo 'eval "$(~/.local/bin/mise activate zsh)"' >> ~/.zshrc
 
 # install tools using homebre
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
