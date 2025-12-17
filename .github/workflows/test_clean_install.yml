@@ -17,7 +17,10 @@ jobs:
         run: sh ${GITHUB_WORKSPACE}/initial_setup.sh
 
       - name: link dotfiles
-        run: DOTFILES_DIR=${GITHUB_WORKSPACE} sh ${GITHUB_WORKSPACE}/scripts/link_dotfiles.sh
+        # restart should reload `.zshrc`
+        run: |
+          DOTFILES_DIR=${GITHUB_WORKSPACE} sh ${GITHUB_WORKSPACE}/scripts/link_dotfiles.sh
+          restart
 
       - name: mise install
         run: mise install
@@ -28,6 +31,7 @@ jobs:
         run: |
           mise doctor
           mise list
+          mise tasks
 
       - name: check homebrew
         run: brew list --formula

@@ -58,9 +58,6 @@ alias dap='dart pub'
 ## --> SVN
 alias sup='svn up --set-depth immediates .'
 
-## --> util
-alias kill-chrome='kill -9 $(ps -x | grep "Google Chrome" | awk "{print $1}")'
-
 # function
 # --> git
 ## delete all the branches starting with given word

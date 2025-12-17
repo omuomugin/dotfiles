@@ -47,3 +47,9 @@ gh pr list | peco | awk '{print $1}' | xargs gh pr view --web
 [tasks.github_check_actions]
 description = "browse status of actions"
 run = "gh run list"
+
+[tasks.kill_chrome]
+description = "kill Google Chrome to reload tab status"
+run = '''
+kill -9 $(ps -x | grep "Google Chrome" | awk "{print $1}")
+'''
