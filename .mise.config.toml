@@ -23,3 +23,27 @@ yarn = "latest"
 yq = "latest"
 python = "3.13"
 "pipx:graph-cli" = "latest"
+
+[tasks.github_open_repo]
+description = "open github repo"
+run = "gh browse"
+
+[tasks.github_create_or_view_pr]
+description = "create or view pull request with web"
+run = '''
+if gh pr view &>/dev/null; then
+    gh pr view -w
+else
+    gh pr create -w
+fi
+'''
+
+[tasks.github_pr_list]
+description = "browse pr list and open with web"
+run = '''
+gh pr list | peco | awk '{print $1}' | xargs gh pr view --web
+'''
+
+[tasks.github_check_actions]
+description = "browse status of actions"
+run = "gh run list"

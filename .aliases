@@ -6,6 +6,7 @@ alias bd='cd ../'             # --> back directroy
 alias h='history | tail -n 32'
 alias here='pwd'
 alias uuid='uuidgen | tr "[:upper:]" "[:lower:]" | tr -d "\n" | pbcopy'
+alias mr='mise run'
 
 ## --> git
 alias g="git"
@@ -29,10 +30,6 @@ alias gp='git push'
 alias gpp='git push --force-with-lease'
 alias gbd='git-branch-delete-by-name' # --> defined as function
 alias gbn='git-branch-by-name' # --> defined as function
-
-## --> gh
-alias gpr='ghpr-func'
-alias gch='gh pr checks -w'
 
 ### --> ghq
 alias gg='ghq get'
@@ -74,13 +71,4 @@ function git-branch-delete-by-name () {
 ## get branch name with name
 function git-branch-by-name () {
   git branch | grep $1 | tr -d ' ' | tr -d '*' | while read _branch; do echo ${_branch}; done
-}
-
-## gh pr view or create
-function ghpr-func () {
-  if gh pr view &>/dev/null; then
-    gh pr view -w
-  else
-    gh pr create -w
-  fi
 }
