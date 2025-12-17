@@ -23,15 +23,20 @@ jobs:
           exec zsh -l
 
       - name: mise install
+        # install might fail with rate limit
+        continue-on-error: true
         run: mise install
 
-      - name: check mise
+      - name: check mise (doctor)
         # mise doctor will fail
         continue-on-error: true
-        run: |
-          mise doctor
-          mise list
-          mise tasks
+        run: mise doctor
+
+      - name: check mise (list)
+        run: mise list
+
+      - name: check mise (task)
+        run: mise tasks
 
       - name: check homebrew
         run: brew list --formula
