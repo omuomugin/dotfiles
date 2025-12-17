@@ -11,3 +11,11 @@ jobs:
 
       - name: setup
         run: sh ${GITHUB_WORKSPACE}/initial_setup.sh
+
+      - name: check mise
+        run: |
+          mise doctor
+          mise list
+
+      - name: check homebrew
+        run: brew list --formula
