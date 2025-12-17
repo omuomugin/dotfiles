@@ -11,7 +11,7 @@ echo 'eval "$(~/.local/bin/mise activate zsh)"' >> ~/.zshrc
 
 # install tools using homebre
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-# FIXME: 
+# FIXME:
 # brew bundle
 
 # zsh-autosuggestions
