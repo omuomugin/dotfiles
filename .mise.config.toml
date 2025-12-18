@@ -3,6 +3,8 @@ go = "latest"
 java = "latest"
 node = "latest"
 ruby = "latest"
+python = "3.13"
+rust = "latest"
 
 actionlint = "latest"
 awscli = { version = "latest", symlink_bins = "true" }
@@ -21,8 +23,14 @@ protobuf = "latest"
 terraform = "latest"
 yarn = "latest"
 yq = "latest"
-python = "3.13"
+
 "pipx:graph-cli" = "latest"
+"pipx:trafilatura" = "latest"
+
+"cargo:git-delta" = "latest"
+
+"github:ktr0731/evans" = "latest"
+"github:k1LoW/octocov" = "latest"
 
 [tasks.github_open_repo]
 description = "open github repo"

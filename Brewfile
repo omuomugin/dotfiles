@@ -1,29 +1,19 @@
 # tap
-tap "k1low/tap"
-tap "ktr0731/evans"
 tap "omuomugin/tap"
 
 # brew
 brew "curl"
-brew "deno"
 brew "docker"
-brew "evans"
-brew "git-delta"
 brew "graphviz"
 brew "httpie"
 brew "lcov"
 brew "plantuml"
 brew "postgresql"
 brew "redis"
-brew "starship"
 brew "tesseract-lang"
-brew "trafilatura"
 brew "tree"
 brew "zsh-completions"
 brew "zsh-autosuggestions"
-
-brew "k1low/tap/octocov"
-brew "k1low/tap/runn"
 
 # apps
 cask_args appdir: "/Applications"
