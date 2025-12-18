@@ -34,10 +34,12 @@ yq = "latest"
 
 [tasks.github_open_repo]
 description = "open github repo"
+alias = "gr"
 run = "gh browse"
 
 [tasks.github_create_or_view_pr]
 description = "create or view pull request with web"
+alias = "gpr"
 run = '''
 if gh pr view &>/dev/null; then
     gh pr view -w
@@ -48,16 +50,19 @@ fi
 
 [tasks.github_pr_list]
 description = "browse pr list and open with web"
+alias = "gprls"
 run = '''
 gh pr list | peco | awk '{print $1}' | xargs gh pr view --web
 '''
 
 [tasks.github_check_actions]
 description = "browse status of actions"
+alias = "gch"
 run = "gh run list"
 
 [tasks.kill_chrome]
 description = "kill Google Chrome to reload tab status"
+alias = "kc"
 run = '''
 kill -9 $(ps -x | grep "Google Chrome" | awk "{print $1}")
 '''
