@@ -30,13 +30,21 @@ jobs:
       - name: check mise (doctor)
         # mise doctor will fail
         continue-on-error: true
-        run: mise doctor >> "$GITHUB_STEP_SUMMARY"
+        run: |
+          echo "======== mise doctor ========"
+          mise doctor >> "$GITHUB_STEP_SUMMARY"
 
       - name: check mise (list)
-        run: mise list >> "$GITHUB_STEP_SUMMARY"
+        run: |
+          echo "======== mise list ========"
+          mise list >> "$GITHUB_STEP_SUMMARY"
 
       - name: check mise (task)
-        run: mise tasks >> "$GITHUB_STEP_SUMMARY"
+        run: |
+          echo "======== mise task ========"
+          mise tasks >> "$GITHUB_STEP_SUMMARY"
 
       - name: check homebrew
-        run: brew list --formula >> "$GITHUB_STEP_SUMMARY"
+        run: |
+          echo "======== brew list --formula ========"
+          brew list --formula >> "$GITHUB_STEP_SUMMARY"
