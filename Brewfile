@@ -11,7 +11,6 @@ brew "plantuml"
 brew "postgresql"
 brew "redis"
 brew "tesseract-lang"
-brew "tree"
 brew "zsh-completions"
 brew "zsh-autosuggestions"
 

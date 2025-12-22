@@ -1,7 +1,10 @@
-theme = 0x96f
+theme = Ayu
 
 keybind = super+shift+left=previous_tab
 keybind = super+shift+right=next_tab
+keybind = super+shift+j=write_screen_file:paste
+keybind = super+alt+shift+j=write_screen_file:open
+keybind = shift+enter=text:\n
 
 font-feature = -calt
 font-feature = -liga
@@ -10,6 +13,4 @@ font-feature = -dlig
 window-padding-x = 24
 window-padding-y = 24
 
-keybind = super+shift+j=write_screen_file:paste
-keybind = super+alt+shift+j=write_screen_file:open
-keybind = shift+enter=text:\n
+macos-titlebar-style = tabs

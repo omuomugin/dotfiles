@@ -1,15 +1,18 @@
 ## --> general
 alias restart='exec zsh -l'   # --> reset setting
-alias ls='ls -a'
-alias ll='ls -lah'
+alias ls='eza -1 -a --git-ignore --icons=auto'
+alias ll='ls -l'
+alias tr='ls -T -L' # --> pass num for depth
+alias trl='ls -T -l -L' # --> pass num for depth
 alias bd='cd ../'             # --> back directroy
 alias h='history | tail -n 32'
 alias here='pwd'
 alias uuid='uuidgen | tr "[:upper:]" "[:lower:]" | tr -d "\n" | pbcopy'
+alias cat='bat'
 
 ## --> mise
 alias r='mise run'
-alias gpr='mise run gpr'
+alias rgpr='mise run gpr'
 
 ## --> git
 alias g="git"
