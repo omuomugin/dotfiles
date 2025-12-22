@@ -7,6 +7,7 @@ dotfiles for omuomugin
 - Open GitHub and Login
 - see https://github.com/omuomugin/dotfiles and download with zip (or else)
 - run `sh initial_setup.sh`
+- run `mise install
 
 ## After installing application and git
 
@@ -15,7 +16,6 @@ sh ./scripts/git_setup.sh
 ```
 
 generate key and add key to GitHub Developers Setting
-
 
 ```sh
 ghq get git@github.com:omuomugin/dotfiles.git
