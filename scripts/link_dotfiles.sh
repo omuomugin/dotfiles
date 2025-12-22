@@ -34,4 +34,9 @@ mkdir -p "$HOME/.config/mise"
 ln -sf "$DOTFILES_DIR/.mise.config.toml" "$HOME/.config/mise/config.toml"
 ls -l "$HOME/.config/mise/config.toml"
 
+# sheldon
+mkdir -p "$HOME/.config/sheldon"
+ln -sf "$DOTFILES_DIR/.sheldon.plugins.toml" "$HOME/.config/sheldon/plugins.toml"
+ls -l "$HOME/.config/sheldon/plugins.toml"
+
 echo "linked dotfiles"

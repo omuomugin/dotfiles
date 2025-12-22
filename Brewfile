@@ -11,8 +11,6 @@ brew "plantuml"
 brew "postgresql"
 brew "redis"
 brew "tesseract-lang"
-brew "zsh-completions"
-brew "zsh-autosuggestions"
 
 # apps
 cask_args appdir: "/Applications"

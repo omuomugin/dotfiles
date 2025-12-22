@@ -5,6 +5,9 @@ export PATH="$HOME/.local/bin:$PATH"
 # mise
 eval "$(~/.local/bin/mise activate zsh)"
 
+# sheldon
+eval "$(sheldon source)"
+
 ## dart & flutter
 export PATH="$PATH":"$HOME/flutter/bin"
 export PATH="$PATH":"$HOME/.pub-cache/bin"
@@ -29,18 +32,6 @@ setopt complete_in_word     # --> autocompletion in mid of words
 setopt always_last_prompt   # --> show file names
 setopt list_types           # --> show list types
 setopt no_beep              # --> disable beep sound
-
-# --> completion && auto suggestion
-chmod -R go-w /opt/homebrew/share
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-  source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-  autoload -Uz compinit
-  compinit
-fi
 
 # --> completion setting
 zstyle ':completion:*' menu select

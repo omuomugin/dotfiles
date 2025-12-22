@@ -27,13 +27,14 @@ yq = "latest"
 "pipx:graph-cli" = "latest"
 "pipx:trafilatura" = "latest"
 
+"cargo:eza" = "latest"
+"cargo:fd-find" = "latest"
+"cargo:bat" = "latest"
+"cargo:sheldon" = "latest"
 "cargo:git-delta" = "latest"
 
 "github:ktr0731/evans" = "latest"
 "github:k1LoW/octocov" = "latest"
-"cargo:eza" = "latest"
-"cargo:fd-find" = "latest"
-"cargo:bat" = "latest"
 
 [tasks.github_open_repo]
 description = "open github repo"
