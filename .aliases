@@ -74,8 +74,8 @@ function _git-branch-delete-by-name () {
 }
 
 ### gh
-alias repo='gh browse'
-alias prl='gh pr list | fzf --reverse | awk '{print $1}' | xargs gh pr view --web'
+alias gre='gh browse'
+alias gprl='gh pr list | fzf --reverse | awk '{print $1}' | xargs gh pr view --web'
 alias gch='gh run list'
 
 alias gpr='_git-create-or-view-pr'
