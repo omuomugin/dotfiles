@@ -19,7 +19,7 @@ function _fzf-history() {
 }
 
 ## --> mise
-alias r='mise run'
+alias mr='mise run'
 
 ## --> git
 alias g="git"
