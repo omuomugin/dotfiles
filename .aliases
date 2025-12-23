@@ -90,9 +90,7 @@ function _gh-run-list-fzf() {
                 else "\u001b[90m○\u001b[0m"
                 end
             elif .status == "in_progress" then "\u001b[33m*\u001b[0m"
-            elif .status == "queued" then "\u001b[90m○\u001b[0m"
-            elif .status == "waiting" then "\u001b[90m○\u001b[0m"
-            else .status
+            else "\u001b[90m?\u001b[0m (.status)"
             end) as $symbol |
             "\($symbol)\t\(.databaseId)\t\(.displayTitle)\t[\(.workflowName)]\t(\(.headBranch))"' | \
         fzf --reverse --ansi | \
