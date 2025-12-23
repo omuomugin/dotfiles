@@ -75,8 +75,8 @@ function _git-branch-delete-by-name () {
 
 ### gh
 alias gre='gh browse'
-alias gprl='gh pr list | fzf --reverse | awk '{print $1}' | xargs gh pr view --web'
-alias gch='gh run list'
+alias gch='gh pr checks'
+alias gchl='gh run list'
 
 alias gpr='_git-create-or-view-pr'
 function _git-create-or-view-pr() {
@@ -84,6 +84,15 @@ function _git-create-or-view-pr() {
         gh pr view -w
     else
         gh pr create -w
+    fi
+}
+
+### -> select pull requests interactively and view in web
+alias gprl='_gh-pr-list-fzf'
+function _gh-pr-list-fzf() {
+    local selected_pr=$(gh pr list --state all | fzf --reverse | awk '{print $1}')
+    if [ -n "$selected_pr" ]; then
+        gh pr view --web ${selected_pr}
     fi
 }
 
