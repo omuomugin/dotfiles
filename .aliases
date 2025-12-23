@@ -76,7 +76,31 @@ function _git-branch-delete-by-name () {
 ### gh
 alias gre='gh browse'
 alias gch='gh pr checks'
-alias gchl='gh run list'
+
+alias gchl='_gh-run-list-fzf'
+function _gh-run-list-fzf() {
+    local selected_id=$(gh run list --json status,conclusion,displayTitle,headBranch,databaseId,url | \
+        jq -r '.[] |
+            (if .status == "completed" then
+                if .conclusion == "success" then "✅"
+                elif .conclusion == "failure" then "❌"
+                elif .conclusion == "cancelled" then "🚫"
+                elif .conclusion == "skipped" then "⏭️"
+                elif .conclusion == "timed_out" then "⏱️"
+                else "⚪"
+                end
+            elif .status == "in_progress" then "🔄"
+            elif .status == "queued" then "⏸️"
+            elif .status == "waiting" then "⏳"
+            else .status
+            end) as $emoji |
+            "\($emoji)\t\(.databaseId)\t\(.displayTitle)\t(\(.headBranch))"' | \
+        fzf --reverse | \
+        awk '{print $2}')
+    if [ -n "$selected_id" ]; then
+        gh run view --web ${selected_id}
+    fi
+}
 
 alias gpr='_git-create-or-view-pr'
 function _git-create-or-view-pr() {
