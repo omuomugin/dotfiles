@@ -18,7 +18,6 @@ jq = "latest"
 kubectx = "latest"
 mysql = "latest"
 pandoc = "latest"
-peco = "latest"
 protobuf = "latest"
 terraform = "latest"
 yarn = "latest"
@@ -56,7 +55,7 @@ fi
 description = "browse pr list and open with web"
 alias = "gprls"
 run = '''
-gh pr list | peco | awk '{print $1}' | xargs gh pr view --web
+gh pr list | fzf --reverse | awk '{print $1}' | xargs gh pr view --web
 '''
 
 [tasks.github_check_actions]

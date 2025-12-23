@@ -76,42 +76,40 @@ setopt inc_append_history
 # --> alias
 source $HOME/.aliases
 
-# --> peco
+# --> fzf
 ## show list for ghq list
-function peco-ghq () {
-  local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
+function fzf-ghq () {
+  local selected_dir=$(ghq list -p | fzf --reverse --query "$LBUFFER")
   if [ -n "$selected_dir" ]; then
-    BUFFER="cd ${selected_dir}"
-    zle accept-line
+    cd ${selected_dir}
   fi
   zle clear-screen
 }
-zle -N peco-ghq
-bindkey '^l' peco-ghq
+zle -N fzf-ghq
+bindkey '^l' fzf-ghq
 
 ## show list for history
-function peco-history() {
-    BUFFER=`history -n 1 | tail -r | peco`
+function fzf-history() {
+    BUFFER=`history -n 1 | tail -r | fzf --reverse`
     CURSOR=$#BUFFER
     zle redisplay
 }
-zle -N peco-history
-bindkey '^h' peco-history
+zle -N fzf-history
+bindkey '^h' fzf-history
 
 ## show list for git-branch
-function peco-git-branch() {
-    local selected_branch=$(git branch --format='%(refname:short)' | peco )
+function fzf-git-branch() {
+    local selected_branch=$(git branch --format='%(refname:short)' | fzf --reverse)
     if [ -n "$selected_branch" ]; then
-      BUFFER="git switch ${selected_branch}"
-      zle accept-line
+      git switch ${selected_branch}
     fi
     zle clear-screen
 }
-zle -N peco-git-branch
-bindkey '^b' peco-git-branch
+zle -N fzf-git-branch
+bindkey '^b' fzf-git-branch
 
-function peco-git-log() {
-    local selected_commit=$(git log --oneline -n 20 | peco | awk '{print $1}')
+function fzf-git-log() {
+    local selected_commit=$(git log --oneline -n 20 | fzf --reverse | awk '{print $1}')
     if [ -n "$selected_commit" ]; then
       BUFFER+="$selected_commit"
       CURSOR=$#BUFFER
@@ -119,5 +117,5 @@ function peco-git-log() {
     fi
     zle clear-screen
 }
-zle -N peco-git-log
-bindkey '^p' peco-git-log
+zle -N fzf-git-log
+bindkey '^p' fzf-git-log

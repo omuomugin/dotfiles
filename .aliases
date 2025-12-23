@@ -51,8 +51,8 @@ alias i='idea ./'
 
 ## --> k8s
 alias k='kubectl'
-alias kctx='kubectx | cat | peco | xargs kubectx' # --> use peco for interactive mode
-alias kns='kubens | cat | peco | xargs kubens' # --> use peco for interactive mode
+alias kctx='kubectx | cat | fzf --reverse | xargs kubectx' # --> use fzf for interactive mode
+alias kns='kubens | cat | fzf --reverse | xargs kubens' # --> use fzf for interactive mode
 alias kctxl='kubectx -c'
 alias knsl='kubens -c'
 
