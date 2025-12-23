@@ -5,11 +5,18 @@ alias ll='ls -l'
 alias tr='ls -T -L' # --> pass num for depth
 alias trl='ls -T -l -L' # --> pass num for depth
 alias bd='cd ../'             # --> back directroy
-alias h='history | tail -n 32'
 alias here='pwd'
 alias uuid='uuidgen | tr "[:upper:]" "[:lower:]" | tr -d "\n" | pbcopy'
 alias cat='bat'
 alias kc='kill -9 $(ps -x | grep "Google Chrome" | awk "{print $1}")'
+
+alias h='fzf-history'
+function fzf-history() {
+    local selected_cmd=`history -n 1 | tail -r | fzf --reverse`
+    if [ -n "$selected_cmd" ]; then
+      print -z "${selected_cmd}"
+    fi
+}
 
 ## --> mise
 alias r='mise run'
@@ -30,10 +37,41 @@ alias gcf='git commit --fixup=HEAD' # --> use with `git rebase --autosquash`
 alias gca='git commit --amend'
 alias gb='git branch'
 alias gcb='git checkout -b'
-alias gr='git rebase -i'
-alias gra='git rebase --autosquash -i'
 alias gp='git push'
 alias gpp='git push --force-with-lease'
+
+### -> select branch interactively and switch
+alias gb='fzf-git-branch'
+function fzf-git-branch() {
+    local selected_branch=$(git branch --format='%(refname:short)' | fzf --reverse)
+    if [ -n "$selected_branch" ]; then
+      git switch ${selected_branch}
+    fi
+}
+
+### -> select commit hash interactively and rebase
+alias gr='git-rebase-fzf'
+function git-rebase-fzf() {
+    local selected_commit=$(git log --oneline -n 20 | fzf --reverse | awk '{print $1}')
+    if [ -n "$selected_commit" ]; then
+        git rebase -i ${selected_commit}
+    fi
+}
+
+### -> select commit hash interactively and rebase but with autosquash
+alias gra='git-rebase-autosquash-fzf'
+function git-rebase-autosquash-fzf() {
+    local selected_commit=$(git log --oneline -n 20 | fzf --reverse | awk '{print $1}')
+    if [ -n "$selected_commit" ]; then
+        git rebase --autosquash -i ${selected_commit}
+    fi
+}
+
+### -> delete all the branches starting with given word
+alias gbd='git-branch-delete-by-name' # --> defined as function
+function git-branch-delete-by-name () {
+  git branch | grep $1 | tr -d ' ' | tr -d '*' | while read _branch; do git branch -D ${_branch}; done
+}
 
 ### gh
 alias gr='gh browse'
@@ -49,10 +87,13 @@ function git-create-or-view-pr() {
     fi
 }
 
-### delete all the branches starting with given word
-alias gbd='git-branch-delete-by-name' # --> defined as function
-function git-branch-delete-by-name () {
-  git branch | grep $1 | tr -d ' ' | tr -d '*' | while read _branch; do git branch -D ${_branch}; done
+### -> select repository interactively and change directory
+alias gg='fzf-ghq'
+function fzf-ghq () {
+  local selected_dir=$(ghq list -p | fzf --reverse)
+  if [ -n "$selected_dir" ]; then
+    cd ${selected_dir}
+  fi
 }
 
 ## --> docker
@@ -75,6 +116,3 @@ alias knsl='kubens -c'
 alias da='dart'
 alias dar='dart run'
 alias dap='dart pub'
-
-## --> SVN
-alias sup='svn up --set-depth immediates .'
