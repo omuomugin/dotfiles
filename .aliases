@@ -85,12 +85,11 @@ function _gh-run-list-fzf() {
                 if .conclusion == "success" then "\u001b[32m✓\u001b[0m"
                 elif .conclusion == "failure" then "\u001b[31m✗\u001b[0m"
                 elif .conclusion == "cancelled" then "\u001b[90m-\u001b[0m"
-                elif .conclusion == "skipped" then "\u001b[90m○\u001b[0m"
+                elif .conclusion == "skipped" then "\u001b[90m-\u001b[0m"
                 elif .conclusion == "timed_out" then "\u001b[31m✗\u001b[0m"
                 else "\u001b[90m○\u001b[0m"
                 end
-            elif .status == "in_progress" then "\u001b[33m*\u001b[0m"
-            else "\u001b[90m?\u001b[0m (.status)"
+            else "\u001b[33m*\u001b[0m"
             end) as $symbol |
             "\($symbol)\t\(.databaseId)\t\(.displayTitle)\t[\(.workflowName)]\t(\(.headBranch))"' | \
         fzf --reverse --ansi | \
