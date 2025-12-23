@@ -10,8 +10,8 @@ alias uuid='uuidgen | tr "[:upper:]" "[:lower:]" | tr -d "\n" | pbcopy'
 alias cat='bat'
 alias kc='kill -9 $(ps -x | grep "Google Chrome" | awk "{print $1}")'
 
-alias h='fzf-history'
-function fzf-history() {
+alias h='_fzf-history'
+function _fzf-history() {
     local selected_cmd=`history -n 1 | tail -r | fzf --reverse`
     if [ -n "$selected_cmd" ]; then
       print -z "${selected_cmd}"
@@ -41,8 +41,8 @@ alias gp='git push'
 alias gpp='git push --force-with-lease'
 
 ### -> select branch interactively and switch
-alias gb='fzf-git-branch'
-function fzf-git-branch() {
+alias gb='_fzf-git-branch'
+function _fzf-git-branch() {
     local selected_branch=$(git branch --format='%(refname:short)' | fzf --reverse)
     if [ -n "$selected_branch" ]; then
       git switch ${selected_branch}
@@ -50,8 +50,8 @@ function fzf-git-branch() {
 }
 
 ### -> select commit hash interactively and rebase
-alias gr='git-rebase-fzf'
-function git-rebase-fzf() {
+alias gr='_git-rebase-fzf'
+function _git-rebase-fzf() {
     local selected_commit=$(git log --oneline -n 20 | fzf --reverse | awk '{print $1}')
     if [ -n "$selected_commit" ]; then
         git rebase -i ${selected_commit}
@@ -59,8 +59,8 @@ function git-rebase-fzf() {
 }
 
 ### -> select commit hash interactively and rebase but with autosquash
-alias gra='git-rebase-autosquash-fzf'
-function git-rebase-autosquash-fzf() {
+alias gra='_git-rebase-autosquash-fzf'
+function _git-rebase-autosquash-fzf() {
     local selected_commit=$(git log --oneline -n 20 | fzf --reverse | awk '{print $1}')
     if [ -n "$selected_commit" ]; then
         git rebase --autosquash -i ${selected_commit}
@@ -68,8 +68,8 @@ function git-rebase-autosquash-fzf() {
 }
 
 ### -> delete all the branches starting with given word
-alias gbd='git-branch-delete-by-name' # --> defined as function
-function git-branch-delete-by-name () {
+alias gbd='_git-branch-delete-by-name' # --> defined as function
+function _git-branch-delete-by-name () {
   git branch | grep $1 | tr -d ' ' | tr -d '*' | while read _branch; do git branch -D ${_branch}; done
 }
 
@@ -78,8 +78,8 @@ alias gr='gh browse'
 alias gprl='gh pr list | fzf --reverse | awk '{print $1}' | xargs gh pr view --web'
 alias gch='gh run list'
 
-alias gpr='git-create-or-view-pr'
-function git-create-or-view-pr() {
+alias gpr='_git-create-or-view-pr'
+function _git-create-or-view-pr() {
     if gh pr view &>/dev/null; then
         gh pr view -w
     else
@@ -88,8 +88,8 @@ function git-create-or-view-pr() {
 }
 
 ### -> select repository interactively and change directory
-alias gg='fzf-ghq'
-function fzf-ghq () {
+alias gg='_fzf-ghq'
+function _fzf-ghq () {
   local selected_dir=$(ghq list -p | fzf --reverse)
   if [ -n "$selected_dir" ]; then
     cd ${selected_dir}
