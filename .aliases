@@ -35,7 +35,7 @@ alias gaa='git add -A'
 alias gc='git commit'
 alias gcf='git commit --fixup=HEAD' # --> use with `git rebase --autosquash`
 alias gca='git commit --amend'
-alias gb='git branch'
+alias gbl='git branch'
 alias gcb='git checkout -b'
 alias gp='git push'
 alias gpp='git push --force-with-lease'
@@ -74,8 +74,8 @@ function _git-branch-delete-by-name () {
 }
 
 ### gh
-alias gr='gh browse'
-alias gprl='gh pr list | fzf --reverse | awk '{print $1}' | xargs gh pr view --web'
+alias repo='gh browse'
+alias prl='gh pr list | fzf --reverse | awk '{print $1}' | xargs gh pr view --web'
 alias gch='gh run list'
 
 alias gpr='_git-create-or-view-pr'
