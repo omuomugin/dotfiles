@@ -9,10 +9,10 @@ alias h='history | tail -n 32'
 alias here='pwd'
 alias uuid='uuidgen | tr "[:upper:]" "[:lower:]" | tr -d "\n" | pbcopy'
 alias cat='bat'
+alias kc='kill -9 $(ps -x | grep "Google Chrome" | awk "{print $1}")'
 
 ## --> mise
 alias r='mise run'
-alias rgpr='mise run gpr'
 
 ## --> git
 alias g="git"
@@ -34,11 +34,26 @@ alias gr='git rebase -i'
 alias gra='git rebase --autosquash -i'
 alias gp='git push'
 alias gpp='git push --force-with-lease'
-alias gbd='git-branch-delete-by-name' # --> defined as function
-alias gbn='git-branch-by-name' # --> defined as function
 
-### --> ghq
-alias gg='ghq get'
+### gh
+alias gr='gh browse'
+alias gprl='gh pr list | fzf --reverse | awk '{print $1}' | xargs gh pr view --web'
+alias gch='gh run list'
+
+alias gpr='git-create-or-view-pr'
+function git-create-or-view-pr() {
+    if gh pr view &>/dev/null; then
+        gh pr view -w
+    else
+        gh pr create -w
+    fi
+}
+
+### delete all the branches starting with given word
+alias gbd='git-branch-delete-by-name' # --> defined as function
+function git-branch-delete-by-name () {
+  git branch | grep $1 | tr -d ' ' | tr -d '*' | while read _branch; do git branch -D ${_branch}; done
+}
 
 ## --> docker
 alias dc='docker compose'
@@ -63,15 +78,3 @@ alias dap='dart pub'
 
 ## --> SVN
 alias sup='svn up --set-depth immediates .'
-
-# function
-# --> git
-## delete all the branches starting with given word
-function git-branch-delete-by-name () {
-  git branch | grep $1 | tr -d ' ' | tr -d '*' | while read _branch; do git branch -D ${_branch}; done
-}
-
-## get branch name with name
-function git-branch-by-name () {
-  git branch | grep $1 | tr -d ' ' | tr -d '*' | while read _branch; do echo ${_branch}; done
-}

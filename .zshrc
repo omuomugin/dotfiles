@@ -78,24 +78,22 @@ source $HOME/.aliases
 
 # --> fzf
 ## show list for ghq list
+alias gg='fzf-ghq'
 function fzf-ghq () {
   local selected_dir=$(ghq list -p | fzf --reverse --query "$LBUFFER")
   if [ -n "$selected_dir" ]; then
     cd ${selected_dir}
   fi
-  zle clear-screen
 }
-zle -N fzf-ghq
-bindkey '^l' fzf-ghq
 
 ## show list for history
+alias h='fzf-history'
 function fzf-history() {
-    BUFFER=`history -n 1 | tail -r | fzf --reverse`
-    CURSOR=$#BUFFER
-    zle redisplay
+    local selected_cmd=`history -n 1 | tail -r | fzf --reverse`
+    if [ -n "$selected_cmd" ]; then
+      print -z "${selected_cmd}"
+    fi
 }
-zle -N fzf-history
-bindkey '^h' fzf-history
 
 ## show list for git-branch
 function fzf-git-branch() {
