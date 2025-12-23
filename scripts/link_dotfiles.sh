@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Set dotfiles directory (default to the original path if not specified)
-DOTFILES_DIR=${DOTFILES_DIR:-$HOME/workspace/github.com/omuomugin/dotfiles}
+DOTFILES_DIR="${DOTFILES_DIR:-$(cd "$(dirname "$0")/.." && pwd)}"
 
 # link dotfiles
 DOT_FILES=(
