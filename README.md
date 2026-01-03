@@ -1,27 +1,27 @@
 dotfiles for omuomugin
 
-## Initial
+## setup git
 
-- install Google Chrome
-- Login to 1Password from Web
-- Open GitHub and Login
-- see https://github.com/omuomugin/dotfiles and download with zip (or else)
-- run `sh initial_setup.sh`
-- run `mise install
-
-## After installing application and git
+generate key and add key to GitHub Developers Setting
 
 ```sh
 sh ./scripts/git_setup.sh
 ```
 
-generate key and add key to GitHub Developers Setting
+- install Google Chrome
+- Login to 1Password from Web
+- Open GitHub and Login
+- Register Key to GitHub
+
+## install tools and apps
 
 ```sh
-ghq get git@github.com:omuomugin/dotfiles.git
-# move to omuomugin/dotfiles
-sh scripts/link_dotfiles.sh
+git clone git@github.com:omuomugin/dotfiles.git ~/workspace/github.com/omuomugin/dotfiles
 ```
+
+- run `sh initial_setup.sh`
+- run `mise install`
+- run `sh scripts/link_dotfiles.sh`
 
 ## Terminal Profile
 import `terminal_profile.terminal` from terminal setting.
