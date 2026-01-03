@@ -34,3 +34,4 @@ yq = "latest"
 
 "github:ktr0731/evans" = "latest"
 "github:k1LoW/octocov" = "latest"
+"cargo:zoxide" = "latest"

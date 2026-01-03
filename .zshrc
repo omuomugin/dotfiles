@@ -75,3 +75,7 @@ setopt inc_append_history
 
 # --> alias
 source $HOME/.aliases
+
+# zoxide
+## see also https://github.com/ajeetdsouza/zoxide
+eval "$(zoxide init zsh)"

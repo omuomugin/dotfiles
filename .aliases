@@ -4,6 +4,8 @@ alias ls='eza -1 -a --git-ignore --icons=auto'
 alias ll='ls -l'
 alias tr='ls -T -L' # --> pass num for depth
 alias trl='ls -T -l -L' # --> pass num for depth
+alias cd='z'
+alias cdi='zi'
 alias bd='cd ../'             # --> back directroy
 alias here='pwd'
 alias uuid='uuidgen | tr "[:upper:]" "[:lower:]" | tr -d "\n" | pbcopy'
