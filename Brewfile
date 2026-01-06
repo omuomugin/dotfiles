@@ -11,6 +11,7 @@ brew "plantuml"
 brew "postgresql"
 brew "redis"
 brew "tesseract-lang"
+brew "libyaml" # --> needs for building ruby > 3.2.x
 
 # apps
 cask_args appdir: "/Applications"

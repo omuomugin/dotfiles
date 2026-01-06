@@ -128,6 +128,8 @@ function _fzf-ghq () {
   fi
 }
 
+alias ggg='ghq get'
+
 ## --> docker
 alias dc='docker compose'
 alias d='docker'

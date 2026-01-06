@@ -13,6 +13,7 @@ curl https://mise.run | sh
 brew bundle
 
 # git-prompt
+mkdir -p "~/.zsh"
 curl -o ~/.zsh/git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
 
 # set mac os settings

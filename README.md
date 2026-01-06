@@ -1,5 +1,15 @@
 dotfiles for omuomugin
 
+## install tools and apps
+
+```sh
+git clone git@github.com:omuomugin/dotfiles.git ~/workspace/github.com/omuomugin/dotfiles
+```
+
+- run `sh initial_setup.sh`
+- run `sh scripts/link_dotfiles.sh`
+- run `mise install`
+
 ## setup git
 
 generate key and add key to GitHub Developers Setting
@@ -13,15 +23,6 @@ sh ./scripts/git_setup.sh
 - Open GitHub and Login
 - Register Key to GitHub
 
-## install tools and apps
-
-```sh
-git clone git@github.com:omuomugin/dotfiles.git ~/workspace/github.com/omuomugin/dotfiles
-```
-
-- run `sh initial_setup.sh`
-- run `mise install`
-- run `sh scripts/link_dotfiles.sh`
 
 ## Terminal Profile
 import `terminal_profile.terminal` from terminal setting.
