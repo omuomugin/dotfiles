@@ -136,7 +136,6 @@ alias d='docker'
 
 ## --> IDE
 alias v='code ./' # --> vscode
-alias f='fleet ./'
 alias i='idea ./'
 
 ## --> k8s
@@ -145,8 +144,3 @@ alias kctx='kubectx | cat | fzf --reverse | xargs kubectx' # --> use fzf for int
 alias kns='kubens | cat | fzf --reverse | xargs kubens' # --> use fzf for interactive mode
 alias kctxl='kubectx -c'
 alias knsl='kubens -c'
-
-## --> dart
-alias da='dart'
-alias dar='dart run'
-alias dap='dart pub'
