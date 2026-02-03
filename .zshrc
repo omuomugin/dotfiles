@@ -1,17 +1,16 @@
 # path
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/flutter/bin:$PATH"
 
 # mise
 eval "$(~/.local/bin/mise activate zsh)"
 
+# direnv
+eval "$(direnv hook zsh)"
+
 # sheldon
 eval "$(sheldon source)"
 
-## dart & flutter
-export PATH="$PATH":"$HOME/flutter/bin"
-export PATH="$PATH":"$HOME/.pub-cache/bin"
 ### Android
 export ANDROID_HOME=~/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools
@@ -67,7 +66,7 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 HISTFILE=$HOME/.zsh-history
 HISTSIZE=1000000
 SAVEHIST=1000000
-HISTORY_IGNORE="(ls|cd|pwd|exit)*"
+HISTORY_IGNORE="(ls|cd|pwd|exit|gs|gpp|gra|gl|glo)*"
 
 setopt share_history          # --> share history between other terminal
 setopt hist_ignore_all_dups   # --> ignore duplicates

@@ -4,13 +4,13 @@ alias ls='eza -1 -a --git-ignore --icons=auto'
 alias ll='ls -l'
 alias tr='ls -T -L' # --> pass num for depth
 alias trl='ls -T -l -L' # --> pass num for depth
-alias cd='z'
 alias cdi='zi'
 alias bd='cd ../'             # --> back directroy
 alias here='pwd'
 alias uuid='uuidgen | tr "[:upper:]" "[:lower:]" | tr -d "\n" | pbcopy'
 alias cat='bat'
 alias kc='kill -9 $(ps -x | grep "Google Chrome" | awk "{print $1}")'
+alias ps='pik'
 
 alias h='_fzf-history'
 function _fzf-history() {

@@ -3,7 +3,7 @@ go = "latest"
 java = "latest"
 node = "latest"
 ruby = "3"
-python = "3.14"
+python = "latest"
 rust = "latest"
 
 actionlint = "latest"
@@ -51,6 +51,10 @@ url = "https://storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d
 [macos-x64]
 url = "https://storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/{version}/darwin-x64/claude"
 """, version_list_url = "https://storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/latest" }
+"github:caarlos0/mdtree" = "latest"
+direnv = "latest"
+"npm:@mermaid-js/mermaid-cli" = "latest"
+"cargo:pik" = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["ruby","node","java"]
