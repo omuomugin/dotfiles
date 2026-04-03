@@ -6,7 +6,7 @@ export PATH="$HOME/.local/bin:$PATH"
 eval "$(~/.local/bin/mise activate zsh)"
 
 # direnv
-eval "$(direnv hook zsh)"
+# eval "$(direnv hook zsh)"
 
 # sheldon
 eval "$(sheldon source)"

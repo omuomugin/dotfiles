@@ -27,6 +27,7 @@ alias mr='mise run'
 alias g="git"
 alias gs='git status'
 alias gd='git diff'
+alias gbd='git branch -D'
 alias gdw='git diff --word-diff'
 alias gl='git log'
 alias gll='git log --name-status'
@@ -35,9 +36,9 @@ alias glo='git log --oneline'
 alias ga='git add'
 alias gaa='git add -A'
 alias gc='git commit'
+alias gco='git checkout'
 alias gcf='git commit --fixup=HEAD' # --> use with `git rebase --autosquash`
 alias gca='git commit --amend'
-alias gbl='git branch'
 alias gcb='git checkout -b'
 alias gp='git push'
 alias gpp='git push --force-with-lease'
@@ -67,12 +68,6 @@ function _git-rebase-autosquash-fzf() {
     if [ -n "$selected_commit" ]; then
         git rebase --autosquash -i ${selected_commit}
     fi
-}
-
-### -> delete all the branches starting with given word
-alias gbd='_git-branch-delete-by-name' # --> defined as function
-function _git-branch-delete-by-name () {
-  git branch | grep $1 | tr -d ' ' | tr -d '*' | while read _branch; do git branch -D ${_branch}; done
 }
 
 ### gh
@@ -110,12 +105,34 @@ function _git-create-or-view-pr() {
     fi
 }
 
-### -> select pull requests interactively and view in web
+### -> select pull requests interactively and view in web (cross-repo)
 alias gprl='_gh-pr-list-fzf'
 function _gh-pr-list-fzf() {
-    local selected_pr=$(gh pr list --state all | fzf --reverse | awk '{print $1}')
-    if [ -n "$selected_pr" ]; then
-        gh pr view --web ${selected_pr}
+    local fields='number,title,author,repository,isDraft,createdAt'
+    local raw
+    local since
+    since=$(date -v-14d +%Y-%m-%d)
+    raw=$(
+        ( gh search prs --state=open --review-requested=@me --created=">=$since" --json "$fields" 2>/dev/null || echo '[]'
+          gh search prs --state=open --author=@me --created=">=$since" --json "$fields" 2>/dev/null || echo '[]' ) | \
+        jq -rs 'add | unique_by(.repository.nameWithOwner + "#" + (.number|tostring)) | map(select(.isDraft == false)) | sort_by(.createdAt) | reverse | .[] |
+            [.repository.nameWithOwner,
+             (.number|tostring),
+             .title,
+             .author.login] | @tsv'
+    )
+    local selected
+    selected=$(echo "$raw" | fzf --reverse --delimiter='\t' \
+        --with-nth='1,3,4' \
+        --header=$'REPO\tTITLE\tAUTHOR' \
+        --multi)
+    if [ -n "$selected" ]; then
+        while IFS= read -r line; do
+            local repo pr_num
+            repo=$(echo "$line" | awk -F'\t' '{print $1}')
+            pr_num=$(echo "$line" | awk -F'\t' '{print $2}')
+            gh pr view --repo "${repo}" --web "${pr_num}"
+        done <<< "$selected"
     fi
 }
 
