@@ -5,6 +5,9 @@ export PATH="$HOME/.local/bin:$PATH"
 # mise
 eval "$(~/.local/bin/mise activate zsh)"
 
+# git-wt
+eval "$(git wt --init zsh)"
+
 # direnv
 # eval "$(direnv hook zsh)"
 

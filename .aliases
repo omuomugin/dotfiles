@@ -70,6 +70,15 @@ function _git-rebase-autosquash-fzf() {
     fi
 }
 
+### -> select worktree interactively and switch
+alias wt='_fzf-git-worktree'
+function _fzf-git-worktree() {
+    local selected_path=$(git wt | tail -n +2 | fzf --reverse | awk '{print $(NF-1)}')
+    if [ -n "$selected_path" ]; then
+        git wt "${selected_path}"
+    fi
+}
+
 ### gh
 alias gre='gh browse'
 alias gch='gh pr checks'

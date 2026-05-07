@@ -56,6 +56,7 @@ url = "https://storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d
 "cargo:pik" = "latest"
 buf = "latest"
 "github:k1LoW/mo" = "latest"
+"github:k1LoW/git-wt" = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["ruby","node","java"]

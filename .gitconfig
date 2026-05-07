@@ -71,3 +71,7 @@
 
 [merge]
     conflictstyle = zdiff3
+[wt]
+	basedir = .worktrees
+	copyignored = true
+	nocopy = node_modules/
