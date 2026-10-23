@@ -2,8 +2,9 @@ theme = Ayu
 
 keybind = shift+enter=text:\n
 
-font-feature = -calt
-font-feature = -liga
+font-family = JetBrains Mono
+font-family = Noto Sans CJK JP
+
 font-feature = -dlig
 
 window-padding-x = 24

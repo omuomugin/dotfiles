@@ -1,6 +1,7 @@
 [user]
     email = m@omuomugin.com
     name = omuomugin
+	signingkey = /Users/shunsuke.sasaki/.ssh/id_rsa.pub
 
 [color]
     status      = auto
@@ -18,6 +19,7 @@
 
 [commit]
 	template = ~/.gitmessage
+	gpgsign = true
 
 [branch]
     sort = -committerdate
@@ -75,3 +77,5 @@
 	basedir = .worktrees
 	copyignored = true
 	nocopy = node_modules/
+[gpg]
+	format = ssh
