@@ -39,4 +39,16 @@ mkdir -p "$HOME/.config/sheldon"
 ln -sf "$DOTFILES_DIR/.sheldon.plugins.toml" "$HOME/.config/sheldon/plugins.toml"
 ls -l "$HOME/.config/sheldon/plugins.toml"
 
+# pnpm
+## see also https://pnpm.io/settings
+mkdir -p "$HOME/Library/Preferences/pnpm"
+ln -sf "$DOTFILES_DIR/.pnpm.config.yaml" "$HOME/Library/Preferences/pnpm/config.yaml"
+ls -l "$HOME/Library/Preferences/pnpm/config.yaml"
+
+# uv
+## see also https://docs.astral.sh/uv/concepts/configuration-files/
+mkdir -p "$HOME/.config/uv"
+ln -sf "$DOTFILES_DIR/.uv.toml" "$HOME/.config/uv/uv.toml"
+ls -l "$HOME/.config/uv/uv.toml"
+
 echo "linked dotfiles"
