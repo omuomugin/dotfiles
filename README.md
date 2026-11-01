@@ -34,7 +34,7 @@ import `xxxx.raycast` from raycast setting.
 
 - `mise install` installs the herdr CLI, `brew bundle` installs the Herdr desktop app
 - `sh scripts/link_dotfiles.sh` links `.herdr.config.toml` and `herdr-app/`
-  - it also switches the app to the `my-main` layout when Herdr is running; otherwise it prints the command to run after opening Herdr
+  - it also merges `herdr-app/shared.overrides.json` (layout, Files/Changes panels) into the app-owned `~/.config/herdr-app/shared.json`. A running app picks the values up on its next start (the layout is switched right away)
 
 - `claude/statusline.sh` is the Claude Code status line. Add it to `~/.claude/settings.json`:
 
