@@ -74,12 +74,21 @@ for file in ${HERDR_APP_FILES[@]}
     ls -l "$HOME/.config/herdr-app/$file"
   done
 
-## the selected layout lives in an app-owned file (shared.json), so select it through the running app
-HERDR_APP_LAYOUT='{"name":"my-main"}'
-if herdr-app do layout.switch "$HERDR_APP_LAYOUT" >/dev/null 2>&1; then
-  echo "herdr-app: switched layout to my-main"
+## shared.json is app-owned (it also holds per-machine state such as space colors),
+## so merge only the keys in shared.overrides.json into it instead of linking it.
+## a running app keeps its in-memory copy: the merged values apply from its next start.
+HERDR_APP_SHARED="$HOME/.config/herdr-app/shared.json"
+[ -s "$HERDR_APP_SHARED" ] || echo '{}' > "$HERDR_APP_SHARED"
+tmp=$(mktemp "$HERDR_APP_SHARED.XXXXXX")
+if jq -s '.[0] * .[1]' "$HERDR_APP_SHARED" "$DOTFILES_DIR/herdr-app/shared.overrides.json" > "$tmp"; then
+  mv "$tmp" "$HERDR_APP_SHARED"
+  echo "herdr-app: merged shared.overrides.json into $HERDR_APP_SHARED"
 else
-  echo "herdr-app: not running. open Herdr and run: herdr-app do layout.switch '$HERDR_APP_LAYOUT'"
+  rm -f "$tmp"
+  echo "herdr-app: failed to merge shared.overrides.json"
 fi
+
+## switch the layout right away when the app is running
+herdr-app do layout.switch '{"name":"my-main"}' >/dev/null 2>&1 && echo "herdr-app: switched layout to my-main"
 
 echo "linked dotfiles"
