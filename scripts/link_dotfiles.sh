@@ -51,4 +51,18 @@ mkdir -p "$HOME/.config/uv"
 ln -sf "$DOTFILES_DIR/.uv.toml" "$HOME/.config/uv/uv.toml"
 ls -l "$HOME/.config/uv/uv.toml"
 
+# herdr
+## see also `herdr --default-config`
+mkdir -p "$HOME/.config/herdr"
+ln -sf "$DOTFILES_DIR/.herdr.config.toml" "$HOME/.config/herdr/config.toml"
+ls -l "$HOME/.config/herdr/config.toml"
+
+# herdr desktop app
+## see also ~/.config/herdr-app/AGENTS.md (other files there are written by the app)
+mkdir -p "$HOME/.config/herdr-app"
+ln -sf "$DOTFILES_DIR/.herdr-app.settings.json" "$HOME/.config/herdr-app/settings.json"
+ls -l "$HOME/.config/herdr-app/settings.json"
+ln -sf "$DOTFILES_DIR/.herdr-app.keys.json" "$HOME/.config/herdr-app/keys.json"
+ls -l "$HOME/.config/herdr-app/keys.json"
+
 echo "linked dotfiles"

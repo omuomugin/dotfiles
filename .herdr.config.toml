@@ -1,0 +1,17 @@
+# herdr configuration
+# linked to ~/.config/herdr/config.toml by scripts/link_dotfiles.sh
+#
+# Only overrides are written here.
+# Run `herdr --default-config` to see every option with its default value.
+# Reload after editing: prefix+shift+r (default prefix is ctrl+b)
+
+# Skip first-run notification setup.
+onboarding = false
+
+[experimental]
+# Switch to an ASCII input source while prefix mode is active,
+# so prefix commands work even when Japanese IME is on (macOS only).
+switch_ascii_input_source_in_prefix = true
+# Keep the IME candidate window following the cursor in agent TUIs (Claude Code etc).
+reveal_hidden_cursor_for_cjk_ime = true
+cjk_ime_agents = ["claude"]

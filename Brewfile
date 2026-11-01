@@ -17,6 +17,7 @@ brew "libyaml" # --> needs for building ruby > 3.2.x
 cask_args appdir: "/Applications"
 cask "1password"
 cask "ghostty"
+cask "herdr-app"
 cask "jetbrains-toolbox"
 cask "karabiner-elements"
 cask "monitorcontrol"

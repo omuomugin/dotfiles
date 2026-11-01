@@ -23,7 +23,7 @@ yarn = "latest"
 yq = "latest"
 hugo = "0.152"
 pipx = "latest"
-gcloud = "latest"
+"asdf:mise-plugins/mise-gcloud" = "latest"
 
 "pipx:graph-cli" = "latest"
 "pipx:trafilatura" = "latest"
@@ -38,7 +38,7 @@ gcloud = "latest"
 "github:ktr0731/evans" = "latest"
 "github:k1LoW/octocov" = "latest"
 
-"http:claude" = { version = "2.1.281", bin = "claude", version_list_url = "https://storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/latest", platforms = { linux-arm64 = { url = "https://storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/{version}/linux-arm64/claude" }, linux-x64 = { url = "https://storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/{version}/linux-x64/claude" }, macos-arm64 = { url = "https://storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/{version}/darwin-arm64/claude" }, macos-x64 = { url = "https://storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/{version}/darwin-x64/claude" } } }
+"http:claude" = { version = "2.1.316", bin = "claude", version_list_url = "https://storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/latest", platforms = { linux-arm64 = { url = "https://storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/{version}/linux-arm64/claude" }, linux-x64 = { url = "https://storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/{version}/linux-x64/claude" }, macos-arm64 = { url = "https://storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/{version}/darwin-arm64/claude" }, macos-x64 = { url = "https://storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/{version}/darwin-x64/claude" } } }
 "github:caarlos0/mdtree" = "latest"
 "npm:@mermaid-js/mermaid-cli" = "latest"
 "cargo:pik" = "latest"
@@ -49,6 +49,7 @@ dart = "latest"
 "github:tomasz-tomczyk/crit" = "latest"
 uv = "latest"
 "github:omuomugin/fade" = "latest"
+herdr = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["ruby","node","java"]
