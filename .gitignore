@@ -2,3 +2,7 @@
 Brewfile.lock.json
 
 .idea/
+
+# herdr-app: type files the app regenerates for editors
+herdr-app/mods/*/gpui-kit.d.ts
+herdr-app/mods/*/jsconfig.json
