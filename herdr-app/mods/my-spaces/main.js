@@ -25,7 +25,7 @@ function place(s, ps) {
   const tabs = new Set((s.tabs ?? []).map((c) => c.id));
   return ps.find((p) => tabs.has(p.tab) && p.cwd)?.cwd || s.folder;
 }
-const rowHeight = ({ tree }) => (tree ? 28 : 30);
+const rowHeight = ({ tree }) => (tree ? 44 : 46); // my-spaces: two lines (name, git)
 const where = (s, ps) => JSON.stringify([s.machine ?? null, place(s, ps)]);
 const base = (path) => path.replace(/\/+$/, "").split("/").pop();
 // Changes made outside Herdr (an editor's save, a commit in another app): looked
@@ -262,21 +262,20 @@ export default class Spaces extends View {
     });
   }
 
-  // Only what's unusual, after the name: "herdr \u00b7 spike \u21912 \u21931". The repo or
-  // branch goes when the name already says it (a worktree is named after its branch),
-  // (my-spaces: master/main are shown too, unlike the shipped spaces mod.)
-  gitTail(g, tree, name, t) {
+  // The second line, under the name: "herdr \u00b7 spike \u21912 \u21931". The repo or
+  // branch goes when the name already says it (a worktree is named after its branch).
+  // (my-spaces: master/main are shown too, and git sits on its own line so long
+  // names and branches each get the sidebar's full width. Every row keeps this
+  // line, empty when there's nothing to say, so rows are one height.)
+  gitLine(g, tree, name, t) {
+    const line = h_flex().h(16).min_w(0).pl(tree ? 44 : 27).gap(5).items_center();
+    if (!g) return line;
     const raw = g.branch ?? "detached";
     const same = (a) => a.toLowerCase() === name.toLowerCase();
     const branch = same(raw) ? "" : raw;
     const repo = tree || same(g.name) ? "" : g.name;
     const where = [repo, branch].filter(Boolean).join(" \u00b7 ");
-    return h_flex()
-      .flex_1()
-      .min_w(0)
-      .gap(5)
-      .justify_end()
-      .items_center()
+    return line
       .text_size(11.5)
       .text_color(t.dim)
       .when(Boolean(where), (el) => el.child(div().min_w(0).truncate().child(where)))
@@ -327,15 +326,16 @@ export default class Spaces extends View {
         cx.notify();
       })
       .on_mouse_down("right", () => this.menu(w))
+      .gap(2)
       .child(
         h_flex()
           .gap(9)
           .items_center()
           .when(Boolean(tree), el => el.pl(22).child(svg("mods/workspace-chrome/branch.svg").size(13).text_color(t.dim)))
           .when(!tree, el => el.child(h_flex().size(18).flex_none().rounded(5).bg(fill).items_center().justify_center().text_size(10.5).font_bold().text_color("#ffffff").child([...w.name][0]?.toUpperCase() ?? "?")))
-          .child(div().flex_shrink(0).max_w(150).truncate().text_color(t.foreground).child(w.name))
-          .child(g ? this.gitTail(g, tree, w.name, t) : div().flex_1()),
-      );
+          .child(div().flex_1().min_w(0).truncate().text_color(t.foreground).child(w.name)),
+      )
+      .child(this.gitLine(g, tree, w.name, t));
   }
 
   compact({ w, i }, t) {
