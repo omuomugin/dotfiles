@@ -59,10 +59,20 @@ ls -l "$HOME/.config/herdr/config.toml"
 
 # herdr desktop app
 ## see also ~/.config/herdr-app/AGENTS.md (other files there are written by the app)
-mkdir -p "$HOME/.config/herdr-app"
-ln -sf "$DOTFILES_DIR/.herdr-app.settings.json" "$HOME/.config/herdr-app/settings.json"
-ls -l "$HOME/.config/herdr-app/settings.json"
-ln -sf "$DOTFILES_DIR/.herdr-app.keys.json" "$HOME/.config/herdr-app/keys.json"
-ls -l "$HOME/.config/herdr-app/keys.json"
+## select the layout once on a new machine: herdr-app do layout.switch '{"name":"my-main"}'
+HERDR_APP_FILES=(
+  settings.json
+  keys.json
+  layouts/my-main.json
+  mods/my-spaces
+  mods/my-status
+)
+mkdir -p "$HOME/.config/herdr-app/layouts" "$HOME/.config/herdr-app/mods"
+for file in ${HERDR_APP_FILES[@]}
+  do
+    # -n: replace an existing symlink to a directory instead of linking inside it
+    ln -sfn "$DOTFILES_DIR/herdr-app/$file" "$HOME/.config/herdr-app/$file"
+    ls -l "$HOME/.config/herdr-app/$file"
+  done
 
 echo "linked dotfiles"
