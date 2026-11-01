@@ -34,11 +34,7 @@ import `xxxx.raycast` from raycast setting.
 
 - `mise install` installs the herdr CLI, `brew bundle` installs the Herdr desktop app
 - `sh scripts/link_dotfiles.sh` links `.herdr.config.toml` and `herdr-app/`
-- select the custom layout once (the choice lives in a file the app owns):
-
-```sh
-herdr-app do layout.switch '{"name":"my-main"}'
-```
+  - it also switches the app to the `my-main` layout when Herdr is running; otherwise it prints the command to run after opening Herdr
 
 - `claude/statusline.sh` is the Claude Code status line. Add it to `~/.claude/settings.json`:
 

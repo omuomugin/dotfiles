@@ -59,7 +59,6 @@ ls -l "$HOME/.config/herdr/config.toml"
 
 # herdr desktop app
 ## see also ~/.config/herdr-app/AGENTS.md (other files there are written by the app)
-## select the layout once on a new machine: herdr-app do layout.switch '{"name":"my-main"}'
 HERDR_APP_FILES=(
   settings.json
   keys.json
@@ -74,5 +73,13 @@ for file in ${HERDR_APP_FILES[@]}
     ln -sfn "$DOTFILES_DIR/herdr-app/$file" "$HOME/.config/herdr-app/$file"
     ls -l "$HOME/.config/herdr-app/$file"
   done
+
+## the selected layout lives in an app-owned file (shared.json), so select it through the running app
+HERDR_APP_LAYOUT='{"name":"my-main"}'
+if herdr-app do layout.switch "$HERDR_APP_LAYOUT" >/dev/null 2>&1; then
+  echo "herdr-app: switched layout to my-main"
+else
+  echo "herdr-app: not running. open Herdr and run: herdr-app do layout.switch '$HERDR_APP_LAYOUT'"
+fi
 
 echo "linked dotfiles"
