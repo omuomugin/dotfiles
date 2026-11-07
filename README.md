@@ -35,6 +35,7 @@ import `xxxx.raycast` from raycast setting.
 - `mise install` installs the herdr CLI, `brew bundle` installs the Herdr desktop app
 - `sh scripts/link_dotfiles.sh` links `.herdr.config.toml` and `herdr-app/`
   - it also merges `herdr-app/shared.overrides.json` (layout, Files/Changes panels) into the app-owned `~/.config/herdr-app/shared.json`. A running app picks the values up on its next start (the layout is switched right away)
+- The `my-crit` mod lists running [crit](https://github.com/tomasz-tomczyk/crit) review sessions in the sidebar (from `~/.crit/sessions`). Click a row to open the review in the browser; a dot marks sessions updated since you last opened them, and the × on hover stops a leftover daemon
 
 - `claude/statusline.sh` is the Claude Code status line. Add it to `~/.claude/settings.json`:
 
