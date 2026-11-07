@@ -65,6 +65,7 @@ HERDR_APP_FILES=(
   layouts/my-main.json
   mods/my-spaces
   mods/my-status
+  mods/my-crit
 )
 mkdir -p "$HOME/.config/herdr-app/layouts" "$HOME/.config/herdr-app/mods"
 for file in ${HERDR_APP_FILES[@]}
