@@ -44,3 +44,9 @@ import `xxxx.raycast` from raycast setting.
 ```
 
 It also writes the latest rate limits to `~/.cache/claude-usage/`, which the `my-status` mod shows in the Herdr status bar.
+
+## crit
+
+- `sh scripts/link_dotfiles.sh` merges `crit/config.overrides.json` into `~/.crit.config.json` (crit writes that file itself, so it is not linked)
+  - `"share_targets": []` (and `"share_url": ""` for older crit) disables sharing reviews to crit.md for every repository. These keys are global-only, so a repo's `.crit.config.json` can't turn sharing back on
+  - check with `crit config`; `crit share` should fail with `sharing is disabled`
