@@ -92,4 +92,22 @@ fi
 ## switch the layout right away when the app is running
 herdr-app do layout.switch '{"name":"my-main"}' >/dev/null 2>&1 && echo "herdr-app: switched layout to my-main"
 
+# crit
+## ~/.crit.config.json is written by crit itself (auth token, share consent, `crit config --migrate`),
+## so merge only the keys in crit/config.overrides.json into it instead of linking it.
+## share_targets / share_url are global-only keys, so this disables sharing for every repository:
+##   - "share_targets": [] disables Share in the browser and `crit share` (crit >= share_targets support)
+##   - "share_url": "" hides the browser Share button on older crit
+CRIT_CONFIG="$HOME/.crit.config.json"
+[ -s "$CRIT_CONFIG" ] || echo '{}' > "$CRIT_CONFIG"
+tmp=$(mktemp "$CRIT_CONFIG.XXXXXX")
+if jq -s '.[0] * .[1]' "$CRIT_CONFIG" "$DOTFILES_DIR/crit/config.overrides.json" > "$tmp"; then
+  mv "$tmp" "$CRIT_CONFIG"
+  chmod 600 "$CRIT_CONFIG"
+  echo "crit: merged config.overrides.json into $CRIT_CONFIG"
+else
+  rm -f "$tmp"
+  echo "crit: failed to merge config.overrides.json"
+fi
+
 echo "linked dotfiles"
